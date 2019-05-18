@@ -1,0 +1,44 @@
+[05-Jun-2018 00:32:59 Asia/Calcutta] PHP Parse error:  syntax error, unexpected ';' in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 28
+[05-Jun-2018 00:33:05 Asia/Calcutta] PHP Parse error:  syntax error, unexpected ';' in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 28
+[05-Jun-2018 00:33:08 Asia/Calcutta] PHP Parse error:  syntax error, unexpected ';' in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 28
+[05-Jun-2018 00:33:09 Asia/Calcutta] PHP Parse error:  syntax error, unexpected ';' in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 28
+[05-Jun-2018 00:33:11 Asia/Calcutta] PHP Parse error:  syntax error, unexpected ';' in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 28
+[05-Jun-2018 00:33:24 Asia/Calcutta] PHP Parse error:  syntax error, unexpected ';' in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 28
+[17-Jun-2018 21:55:57 Asia/Calcutta] PHP Fatal error:  Cannot access empty property in /home/dcskme8d/public_html/dcs/application/views/configure/course.php on line 81
+[17-Jun-2018 22:19:41 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Configure::category() in /home/dcskme8d/public_html/dcs/application/controllers/configure.php on line 50
+[17-Jun-2018 22:19:43 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Configure::category() in /home/dcskme8d/public_html/dcs/application/controllers/configure.php on line 50
+[08-Jul-2018 15:20:08 Asia/Calcutta] PHP Fatal error:  Call to undefined method CI_Input::method() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 40
+[08-Jul-2018 15:21:05 Asia/Calcutta] PHP Fatal error:  Call to undefined method CI_Input::method() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 41
+[08-Jul-2018 19:20:55 Asia/Calcutta] PHP Parse error:  syntax error, unexpected end of file in /home/dcskme8d/public_html/dcs/application/views/promotionDetail.php on line 166
+[08-Jul-2018 19:20:58 Asia/Calcutta] PHP Parse error:  syntax error, unexpected end of file in /home/dcskme8d/public_html/dcs/application/views/promotionDetail.php on line 166
+[08-Jul-2018 20:32:57 Asia/Calcutta] PHP Fatal error:  Can't use method return value in write context in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 81
+[08-Jul-2018 20:33:03 Asia/Calcutta] PHP Fatal error:  Can't use method return value in write context in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 81
+[08-Jul-2018 20:33:46 Asia/Calcutta] PHP Fatal error:  Can't use method return value in write context in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 81
+[08-Jul-2018 20:33:54 Asia/Calcutta] PHP Fatal error:  Can't use method return value in write context in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 81
+[08-Jul-2018 20:33:56 Asia/Calcutta] PHP Fatal error:  Can't use method return value in write context in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 81
+[08-Jul-2018 20:34:15 Asia/Calcutta] PHP Fatal error:  Can't use method return value in write context in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 81
+[08-Jul-2018 20:37:25 Asia/Calcutta] PHP Fatal error:  Can't use method return value in write context in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 80
+[09-Jul-2018 23:59:55 Asia/Calcutta] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/dcskme8d/public_html/dcs/application/views/promotionDetail.php on line 164
+[10-Jul-2018 00:01:26 Asia/Calcutta] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/dcskme8d/public_html/dcs/application/views/promotionDetail.php on line 164
+[21-Jul-2018 00:31:48 Asia/Calcutta] PHP Fatal error:  Cannot access empty property in /home/dcskme8d/public_html/dcs/application/views/updateStudent.php on line 188
+[21-Jul-2018 00:32:48 Asia/Calcutta] PHP Fatal error:  Cannot access empty property in /home/dcskme8d/public_html/dcs/application/views/updateStudent.php on line 188
+[28-Jul-2018 23:56:14 Asia/Calcutta] PHP Fatal error:  Call to a member function update() on a non-object in /home/dcskme8d/public_html/dcs/application/controllers/configure.php on line 148
+[28-Jul-2018 23:57:16 Asia/Calcutta] PHP Fatal error:  Call to a member function update() on a non-object in /home/dcskme8d/public_html/dcs/application/controllers/configure.php on line 148
+[31-Jul-2018 21:16:38 Asia/Calcutta] PHP Fatal error:  Call to a member function row() on a non-object in /home/dcskme8d/public_html/dcs/application/views/updateStudentProfile.php on line 33
+[20-Aug-2018 09:08:05 Asia/Calcutta] PHP Fatal error:  Call to a member function row() on a non-object in /home/dcskme8d/public_html/dcs/application/views/updateStudentProfile.php on line 33
+[03-Sep-2018 16:02:47 Asia/Calcutta] PHP Fatal error:  Call to a member function model() on a non-object in /home/dcskme8d/public_html/dcs/application/controllers/libraryCard.php on line 11
+[03-Sep-2018 16:05:01 Asia/Calcutta] PHP Fatal error:  Call to a member function view() on a non-object in /home/dcskme8d/public_html/dcs/application/controllers/libraryCard.php on line 17
+[07-Sep-2018 11:30:06 Asia/Calcutta] PHP Fatal error:  Call to undefined method HomeController::is_login() in /home/dcskme8d/public_html/dcs/application/controllers/homeController.php on line 6
+[07-Sep-2018 12:44:44 Asia/Calcutta] PHP Fatal error:  Call to undefined method HomeController::is_login() in /home/dcskme8d/public_html/dcs/application/controllers/homeController.php on line 6
+[07-Sep-2018 21:49:16 Asia/Calcutta] PHP Fatal error:  Call to a member function row() on a non-object in /home/dcskme8d/public_html/dcs/application/views/updateStudentProfile.php on line 33
+[27-Sep-2018 23:22:27 Asia/Calcutta] PHP Parse error:  syntax error, unexpected '0000' (T_LNUMBER) in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 280
+[27-Sep-2018 23:22:44 Asia/Calcutta] PHP Parse error:  syntax error, unexpected '0000' (T_LNUMBER) in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 280
+[30-Oct-2018 19:36:39 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
+[30-Oct-2018 19:44:41 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
+[30-Oct-2018 19:44:44 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
+[30-Oct-2018 19:45:21 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
+[30-Oct-2018 19:49:26 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
+[30-Oct-2018 19:49:29 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
+[30-Oct-2018 19:53:05 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
+[30-Oct-2018 19:53:10 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
+[30-Oct-2018 19:53:33 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
