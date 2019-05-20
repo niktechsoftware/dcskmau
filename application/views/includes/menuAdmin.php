@@ -126,34 +126,18 @@
                 <span class="title">Library Card</span>
             </a>
         </li>
-      
-         
     </ul>
 </li>
-
-   
- 
-   
-   
-
-
-
-
        <li>
     <a href="javascript:;">
         <i class="fa fa-folder-open"></i> <span class="title"> Mobile Message </span><i class="icon-arrow"></i> <span class="arrow "></span>
     </a>
     <ul class="sub-menu">
-   				
         		<li>
 		            <a href="<?php echo base_url(); ?>index.php/login/mobileNotice/Notice">
 		                Notice(Individual)<i class="icon-arrow"></i>
 		            </a>
                 </li>
-             
-               
-              
-               
             </ul>
  </li>
  <li>

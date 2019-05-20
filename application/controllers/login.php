@@ -277,8 +277,6 @@ $this->db->where("roll_number",$student_id);
 		$data['mainContent'] = 'searchbyCourse';
 		$this->load->view("includes/mainContent", $data);
 	}
-	
-	
 	function admissionSuccess(){
 		$data['pageTitle'] = 'Student Section';
 		$data['smallTitle'] = 'Student Profile';
@@ -304,13 +302,10 @@ $this->db->where("roll_number",$student_id);
 	function updateStudentProfile(){
 		$sno = $this->uri->segment(3);
 			$b = $this->db->query("select * from student_info where sno = '$sno'");
-				
 			$data['stud_id']=$sno;
 			if($b->num_rows()>0){
 				$data['rollarray']=$b;
-		
 		}
-	
 		$data['pageTitle'] = 'Student Update Profile';
 		$data['smallTitle'] = 'New Admission';
 		$data['mainPage'] = 'Students';
@@ -322,8 +317,16 @@ $this->db->where("roll_number",$student_id);
 		$this->load->view("includes/mainContent", $data);
 	}
 	
-	
-	
-	
+		public function dayBook(){
+		$data['pageTitle'] = 'DayBook Section';
+		$data['smallTitle'] = 'DayBook';
+		$data['mainPage'] = 'dayBook';
+		$data['subPage'] = 'Credit/Debit';
+		$data['title'] = 'DayBook';
+		$data['headerCss'] = 'headerCss/daybookCss';
+		$data['footerJs'] = 'footerJs/daybookJs';
+		$data['mainContent'] = 'dayBookk';
+		$this->load->view("includes/mainContent", $data);
+	}
 }
 ?>

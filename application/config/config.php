@@ -13,8 +13,8 @@
 | If this is not set then CodeIgniter will guess the protocol, domain and
 | path to your installation.
 |
-*/
-$config['base_url']	= 'http://dcskmau.com/dcs/';
+*/$config['base_url']	= 'http://localhost/dcskmau/';
+//$config['base_url']	= 'http://dcskmau.com/dcs/';
 
 /*
 |--------------------------------------------------------------------------

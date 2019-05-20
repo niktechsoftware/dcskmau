@@ -48,8 +48,8 @@
 $active_group = 'default';
 $active_record = TRUE;
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'dcskme8d_registr';
-$db['default']['password'] = 'Rahul!123singh';
+$db['default']['username'] = 'root';//'dcskme8d_registr';
+$db['default']['password'] = 'mgfhbl';//'Rahul!123singh';
 $db['default']['database'] = 'dcskme8d_registr';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
