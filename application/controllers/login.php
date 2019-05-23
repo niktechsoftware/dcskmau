@@ -41,18 +41,15 @@ $bstNumber = $this->input->post("bstnumber");
 }
 	
 	function index(){
-	
 		$data['pageTitle'] = 'Dashboard';
 		$data['smallTitle'] = 'Overview of all Section';
 		$data['mainPage'] = 'Dashboard';
 		$data['subPage'] = 'dashboard';
-		
 		$data['title'] = 'Gfinch Dashboard';
 		$data['headerCss'] = 'headerCss/dashboardCss';
 		$data['footerJs'] = 'footerJs/dashboardJs';
 		$data['mainContent'] = 'dashboard';
 		$this->load->view("includes/mainContent", $data);
-	
 	}	
 	function updateStudent(){
 		$bst=0;
@@ -88,7 +85,6 @@ $bstNumber = $this->input->post("bstnumber");
 		
 		$data['mainContent'] = 'collectfee';
 		$this->load->view("includes/mainContent", $data);
-		
 	}
 function saveUpdate(){
 		$student_id= $this->input->post("student_id");
@@ -99,22 +95,16 @@ function saveUpdate(){
 		$sub3= $this->input->post("sub3");
 			$adhaarNo= $this->input->post("adhaarNo");
 			$addmissionDate = $this->input->post("addmissionDate");
-		
 		$fee= $this->input->post("addfee");
 $lesorNo= $this->input->post("lesorNo");
 $stuImage= $this->input->post("stuImage");
-
 		echo $student_id;
 $this->db->where("roll_number",$student_id);
 			$val = $this->db->get("student_info")->row();
-
-
 		$photo_name = time().trim($_FILES['stuImage']['name']);
 		$new_img = array(
 				"photo"=> $photo_name
 		);
-		
-	
 		
 			$this->load->library('upload');
 			// Set configuration array for uploaded photo.
@@ -142,14 +132,13 @@ $this->db->where("roll_number",$student_id);
 							'student_image'=>$photo_name,
 							'fee_status'=> "submitted",
 							'fee_date'  =>  date("Y-m-d")
-
-);
+							);
         
-		$old_img = $val->student_image;
-		@chmod("assets/images/stuImage/" . $old_img, 0777);
-		@unlink("assets/images/stuImage/" . $old_img);
-		$this->db->where("roll_number",$student_id);
-		$vat = $this->db->update("student_info",$data);
+						$old_img = $val->student_image;
+						@chmod("assets/images/stuImage/" . $old_img, 0777);
+						@unlink("assets/images/stuImage/" . $old_img);
+						$this->db->where("roll_number",$student_id);
+						$vat = $this->db->update("student_info",$data);
 					redirect("index.php/login/updateStudent/true");
 				}
 			
@@ -164,16 +153,13 @@ $this->db->where("roll_number",$student_id);
 							'subject1'=>$sub1,
 							'subject2'=>$sub2,
 							'subject3'=>$sub3,
-							'fee'=>$fee,
-
+							'fee'=>$fee
 );
 
 $this->db->where("roll_number",$student_id);
 		$vat = $this->db->update("student_info",$data);
 					redirect("index.php/login/updateStudent/true");
 		}
-		
-
 	} 
 	function newAdmission1(){
 		$data['isvalue']='null';
@@ -183,14 +169,11 @@ $this->db->where("roll_number",$student_id);
 			$num = $this->db->get("student_info")->num_rows();
 			if($num <= 0)
 			{
-			
 			$b = $this->db->query("select * from tbl_enrollment where roll_number = '$studentId'");
-			
 			$data['stud_id']=$studentId;
 		     if($b->num_rows()>0){
 		     	$data['rollarray']=$b;
 		     	$data['isvalue']=1;
-		     
 				}
 				else{
 					$data['rollarray']="null";
@@ -202,8 +185,7 @@ $this->db->where("roll_number",$student_id);
 				redirect("login/newAdmission1/$msg");
 			}
 				
-		}
-				
+		}	
 				$data['pageTitle'] = 'Student Section';
 				$data['smallTitle'] = 'New Admission';
 				$data['mainPage'] = 'Students';
@@ -212,7 +194,6 @@ $this->db->where("roll_number",$student_id);
 				$data['headerCss'] = 'headerCss/newAdmissionCss';
 				$data['footerJs'] = 'footerJs/newAdmission';
 				$data['mainContent'] = 'newAdmission1';
-				
 				$this->load->view("includes/mainContent", $data);
 	}
 	
@@ -221,11 +202,9 @@ $this->db->where("roll_number",$student_id);
 		$data['smallTitle'] = 'Search Student';
 		$data['mainPage'] = 'Student';
 		$data['subPage'] = 'Search Student';
-		
 		$data['title'] = 'Search Student';
 		$data['headerCss'] = 'headerCss/studentListCss';
 		$data['footerJs'] = 'footerJs/simpleStudentListJs';
-		
 		$data['mainContent'] = 'simpleSearchStudent';
 		$this->load->view("includes/mainContent", $data);
 	}
@@ -234,11 +213,9 @@ $this->db->where("roll_number",$student_id);
 		$data['smallTitle'] = 'Search Student';
 		$data['mainPage'] = 'Student';
 		$data['subPage'] = 'Search Student';
-		
 		$data['title'] = 'Search Student';
 		$data['headerCss'] = 'headerCss/studentListCss';
 		$data['footerJs'] = 'footerJs/simpleStudentListJs';
-		
 		$data['mainContent'] = 'search';
 		$this->load->view("includes/mainContent", $data);
 	}

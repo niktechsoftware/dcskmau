@@ -61,12 +61,42 @@
 		<script>
 			jQuery(document).ready(function() {
 
+					//code of show value
+
+					//js code start
+						 $("#yearId").change(function(){
+                   		 var Coursenm = $("#yearId").val();
+                   			alert(Coursenm);
+                   		 $.post("<?php echo base_url('daybookController/showCourse') ?>",{Coursenm : Coursenm}, function(data){
+                    		$("#courseId").html(data);
+                    		//alert(data);
+                       	 });
+                });
+					//js code end
+				$("#getDetailButton").click(function(){
+		        var start_date = $('#strDate').val();
+		        var end_date = $('#end_date').val();
+		        var yearId = $('#yearId').val();
+		        var courseId = $('#courseId').val();
+		        	var checkValue = $('#checkValue').val();
+		      
+		        $.post("<?php echo base_url('daybookController/showInfo') ?>",{start_date : start_date,
+		         end_date : end_date, 
+		     		yearId : yearId,
+		     		courseId : courseId }, function(data){
+		                $("#showStudList").html(data);
+		                //alert(data);
+		        });
+		       // $('#addExam').val("");
+		        });
+					//
 				$(document).ready(function() {
 				    $('#showList').DataTable();
 				} );
 
-				Main.init();
-				SVExamples.init();
+				 Main.init();
+        SVExamples.init();
+        Index.init();
 				
 			});
 			</script>	
