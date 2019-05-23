@@ -66,7 +66,7 @@
 					//js code start
 						 $("#yearId").change(function(){
                    		 var Coursenm = $("#yearId").val();
-                   			alert(Coursenm);
+                   			//alert(Coursenm);
                    		 $.post("<?php echo base_url('daybookController/showCourse') ?>",{Coursenm : Coursenm}, function(data){
                     		$("#courseId").html(data);
                     		//alert(data);
@@ -78,14 +78,14 @@
 		        var end_date = $('#end_date').val();
 		        var yearId = $('#yearId').val();
 		        var courseId = $('#courseId').val();
-		        	var checkValue = $('#checkValue').val();
-		      
+           		 var radioValue = $("input[name='check_list']:checked").val();
+		      alert(radioValue);
 		        $.post("<?php echo base_url('daybookController/showInfo') ?>",{start_date : start_date,
 		         end_date : end_date, 
 		     		yearId : yearId,
-		     		courseId : courseId }, function(data){
+		     		courseId : courseId,
+		     		radioValue : radioValue }, function(data){
 		                $("#showStudList").html(data);
-		                //alert(data);
 		        });
 		       // $('#addExam').val("");
 		        });
