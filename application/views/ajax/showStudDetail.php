@@ -19,7 +19,7 @@ if(isset($view)):
                                     </thead>
                                     <tbody>
                                         <?php 
-                                            foreach($view as $row){
+                                            foreach($view->result() as $row){
                                         ?>
                                        <tr>
                                         <th><?php echo $i;?></th>
@@ -41,10 +41,10 @@ if(isset($view)):
                                     ?>
                                     </tbody>
                                     <tfoot>
-                                         <tr>
+                                        <tr>
                                         <th>Sno</th>
                                         <th>Roll Number</th>
-                                        <th>Leaser No.</th>
+                                        <th>Leaser No</th>
                                         <th>Name</th>
                                         <th>Mobile No.</th>
                                         <th>Year</th>

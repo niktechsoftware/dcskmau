@@ -8,18 +8,22 @@
                
                     <div class="row"> 
                      <div class="col-md-12 space20">
-                        <div class="col-md-6">
-                            <div class="col-md-3">Start Date</div>
-                                 <div class="col-md-3">
-                                 <input type="date" data-date-format="yyyy-mm-dd" data-date-viewmode="years" class="form-control date-picker" name="st_date" id="strDate" style="width:180px; height:30px;" class="form-control" required/>
-                                </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="col-md-3">End Date</div>
+                        
                             <div class="col-md-3">
-                                <input type="date" data-date-format="yyyy-mm-dd" data-date-viewmode="years" class="form-control date-picker" name="end_date" id="end_date" style="width:180px; height:30px;" class="form-control" required/>
+                                <h5 class="text-center">Select Session</h5>
                             </div>
-                        </div>               
+                              <div class="col-md-9">
+                                  <select name="session_nm" id="session_nm" class="form-control">
+                                       <option value="0">-Select Session-</option>
+                                       <option value="17">2017</option> 
+                                       <option value="18">2018</option>
+                                       <option value="19">2019</option>
+                                                                     
+                                     </select> 
+                              </div>
+                       
+                        </div>
+                                    
                     </div>   
                     </div>
                     <div class="row">

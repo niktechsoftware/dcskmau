@@ -302,7 +302,7 @@ $this->db->where("roll_number",$student_id);
 		$data['title'] = 'DayBook';
 		$data['headerCss'] = 'headerCss/daybookCss';
 		$data['footerJs'] = 'footerJs/daybookJs';
-		$data['mainContent'] = 'dayBookk';
+		$data['mainContent'] = 'daybookk';
 		$this->load->view("includes/mainContent", $data);
 	}
 }

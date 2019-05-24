@@ -147,8 +147,12 @@
     <ul class="sub-menu">
         <li>
             <a href="<?php echo base_url(); ?>login/dayBook">
-               Day Book<i class="icon-arrow"></i>
+                <span class="title">Day Book</span>
             </a>
+<!-- 
+            <a href="<?php echo base_url(); ?>index.php/login/dayBook">
+               Day Book<i class="icon-arrow"></i>
+            </a> -->
            
                 </li>
                 <li>

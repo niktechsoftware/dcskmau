@@ -74,18 +74,22 @@
                 });
 					//js code end
 				$("#getDetailButton").click(function(){
-		        var start_date = $('#strDate').val();
-		        var end_date = $('#end_date').val();
+		       // var start_date = $('#strDate').val();
+		        //var end_date = $('#end_date').val();
 		        var yearId = $('#yearId').val();
 		        var courseId = $('#courseId').val();
+		        var sessionID = $('#session_nm').val();
            		 var radioValue = $("input[name='check_list']:checked").val();
-		      alert(radioValue);
-		        $.post("<?php echo base_url('daybookController/showInfo') ?>",{start_date : start_date,
-		         end_date : end_date, 
+		     alert(radioValue);
+
+		        $.post("<?php echo base_url('daybookController/showInfo') ?>",{//start_date : start_date,
+		        // end_date : end_date, 
 		     		yearId : yearId,
 		     		courseId : courseId,
-		     		radioValue : radioValue }, function(data){
+		     		radioValue : radioValue,
+		     		 sessionID : sessionID}, function(data){
 		                $("#showStudList").html(data);
+		                //alert(data);
 		        });
 		       // $('#addExam').val("");
 		        });

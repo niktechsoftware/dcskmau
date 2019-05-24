@@ -13,14 +13,21 @@
 			}
 
 		public function showInfo(){
-			$start_date = $this->input->post('start_date');
-			$end_date = $this->input->post('end_date');
+			
 			$yearID = $this->input->post('yearId');
 			$courseID = $this->input->post('courseId');
 			$radioValue = $this->input->post('radioValue');
-			$this->load->model('dayBookModel');
-			$data['view'] = $this->dayBookModel->showStudent();
+			$sessionID = $this->input->post('sessionID');
+			if($radioValue=='all'){
+			//$school_code = $this->session->userdata("school_code");
+			$data['view'] =$this->db->query("select * from student_info where year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%'");
 			$this->load->view("ajax/showStudDetail",$data);
+		}
+		else{
+			echo 'correct';
+			$this->load->view("ajax/showStudDetail");
+		}
+		
 			
 		}
 	}
