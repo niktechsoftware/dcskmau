@@ -147,12 +147,12 @@
     <ul class="sub-menu">
         <li>
             <a href="<?php echo base_url(); ?>login/dayBook">
-                <span class="title">Day Book</span>
+                <span class="title">Show Information</span>
             </a>
         </li>
         <li>
-            <a href="<?php echo base_url(); ?>login/cashPayment">
-                 <span class="title">Transaction</span>
+            <a href="<?php echo base_url(); ?>login/creditDebit">
+                 <span class="title">Day Book</span>
             </a>
         </li>
       </ul>

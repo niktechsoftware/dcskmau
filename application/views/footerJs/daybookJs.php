@@ -52,7 +52,8 @@
 <script src="<?php echo base_url(); ?>assets/plugins/jquery.sparkline/jquery.sparkline.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/index.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script scr="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <!-- start: CORE JAVASCRIPTS  -->
 <script src="<?php echo base_url(); ?>assets/js/main.js"></script>

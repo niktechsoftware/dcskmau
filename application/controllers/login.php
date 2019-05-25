@@ -298,11 +298,24 @@ $this->db->where("roll_number",$student_id);
 		$data['pageTitle'] = 'Student Information Section';
 		$data['smallTitle'] = 'Student Infomation';
 		$data['mainPage'] = 'Student';
-		$data['subPage'] = 'Show All Infomation';
+		$data['subPage'] = ' All Infomation';
 		$data['title'] = 'Student Information Section';
 		$data['headerCss'] = 'headerCss/daybookCss';
 		$data['footerJs'] = 'footerJs/daybookJs';
 		$data['mainContent'] = 'daybookk';
+		$this->load->view("includes/mainContent", $data);
+	}
+
+
+		public function creditDebit(){
+		$data['pageTitle'] = 'DayBook Section';
+		$data['smallTitle'] = ' DayBook Detail';
+		$data['mainPage'] = 'Credit/Dedit';
+		$data['subPage'] = ' All Infomation';
+		$data['title'] = 'Day Book';
+		$data['headerCss'] = 'headerCss/daybookCss';
+		$data['footerJs'] = 'footerJs/daybookJs';
+		$data['mainContent'] = 'trancation';
 		$this->load->view("includes/mainContent", $data);
 	}
 }
