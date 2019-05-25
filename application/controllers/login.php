@@ -295,11 +295,11 @@ $this->db->where("roll_number",$student_id);
 	}
 	
 		public function dayBook(){
-		$data['pageTitle'] = 'DayBook Section';
-		$data['smallTitle'] = 'DayBook';
-		$data['mainPage'] = 'dayBook';
-		$data['subPage'] = 'Credit/Debit';
-		$data['title'] = 'DayBook';
+		$data['pageTitle'] = 'Student Information Section';
+		$data['smallTitle'] = 'Student Infomation';
+		$data['mainPage'] = 'Student';
+		$data['subPage'] = 'Show All Infomation';
+		$data['title'] = 'Student Information Section';
 		$data['headerCss'] = 'headerCss/daybookCss';
 		$data['footerJs'] = 'footerJs/daybookJs';
 		$data['mainContent'] = 'daybookk';

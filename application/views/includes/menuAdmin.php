@@ -149,23 +149,14 @@
             <a href="<?php echo base_url(); ?>login/dayBook">
                 <span class="title">Day Book</span>
             </a>
-<!-- 
-            <a href="<?php echo base_url(); ?>index.php/login/dayBook">
-               Day Book<i class="icon-arrow"></i>
-            </a> -->
-           
-                </li>
-                <li>
+        </li>
+        <li>
             <a href="<?php echo base_url(); ?>login/cashPayment">
-              Transaction <i class="icon-arrow"></i>
+                 <span class="title">Transaction</span>
             </a>
-           
-            </li>
+        </li>
       </ul>
     </li>
-    
-	
-	
 </ul>
 <?php endif;?>
 

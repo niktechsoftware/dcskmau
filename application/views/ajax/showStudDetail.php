@@ -11,6 +11,7 @@ if(isset($view)):
                                         <th>Name</th>
                                         <th>Mobile No.</th>
                                         <th>Year</th>
+                                        <th>Course</th>
                                         <th>Fees</th>
                                         <th>Fees Status</th>
                                         <th>Gender</th>
@@ -28,6 +29,7 @@ if(isset($view)):
                                         <th> <?php echo $row->name;?></th>
                                         <th><?php echo $row->mobile_number;?></th>
                                         <th><?php echo $row->year; ?></th>
+                                        <th><?php echo $row->course;?></th>
                                         <th><?php echo $row->fee;?></th>
                                          <th><?php echo $row->fee_status;?></th>
                                         <th><?php echo $row->gender;?></th>
@@ -48,6 +50,7 @@ if(isset($view)):
                                         <th>Name</th>
                                         <th>Mobile No.</th>
                                         <th>Year</th>
+                                        <th>Course</th>
                                         <th>Fees</th>
                                         <th>Fees Status</th>
                                         <th>Gender</th>

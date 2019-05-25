@@ -18,12 +18,9 @@
                                        <option value="17">2017</option> 
                                        <option value="18">2018</option>
                                        <option value="19">2019</option>
-                                                                     
                                      </select> 
                               </div>
-                       
-                        </div>
-                                    
+                        </div>     
                     </div>   
                     </div>
                     <div class="row">
@@ -38,7 +35,7 @@
                                         <option value="1st">1st</option>
                                         <option value="2nd">2nd</option>
                                         <option value="3rd">3rd</option>
-                                        <option value="all">ALL</option>
+                                        <!-- <option value="all">ALL</option> -->
                                     </select>
                                 </div> 
                             </div>
@@ -50,13 +47,12 @@
                                 </div>
                                 <div class="panel-body">
                                     <select class="form-control" id="courseId">
-                                       
                                     </select>
                                 </div> 
                             </div>
                            </div>
                         </div>
-                    </div>
+                   
                     <div class="row">
                      <div class="col-md-12 space20">
                         <div class="col-md-2">
@@ -99,16 +95,15 @@
                             <div style="color: red;"><!-- <?php echo $msg;?> --></div> 
                          </div>
                     </div>
-                </div> 
-                
+                </div>
                 <div class="row" style="padding-bottom: 20px;">
                      <div class="col-md-6">
                         <div class="col-md-4">
                             <input type="submit" name="dbd" id="getDetailButton" value="Get Detail" class="submit btn btn-blue">
                         </div>
                     </div>
-                 </div>  
-               
+                 </div>
+               </div>
             </div>    
         </div> 
         <div class="row">
@@ -120,7 +115,6 @@
                      <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12" id="showStudList">
-                               
                             </div>
                         </div>
                      </div>
