@@ -313,8 +313,8 @@ $this->db->where("roll_number",$student_id);
 		$data['mainPage'] = 'Credit/Dedit';
 		$data['subPage'] = ' All Infomation';
 		$data['title'] = 'Day Book';
-		$data['headerCss'] = 'headerCss/daybookCss';
-		$data['footerJs'] = 'footerJs/daybookJs';
+		$data['headerCss'] = 'headerCss/trancationCss';
+		$data['footerJs'] = 'footerJs/trancationJs';
 		$data['mainContent'] = 'trancation';
 		$this->load->view("includes/mainContent", $data);
 	}

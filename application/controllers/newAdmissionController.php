@@ -90,15 +90,43 @@ function showSubject(){
 		$data['fee_date']           = date("Y-m-d");
 		$data['addmissionDate'] = date("Y-m-d");
 	     $data['status']	= "confirmation";
+		///opening closing code start
+	     $this->db->get("opening_closing_balance");
+	     if("'opening_date' <='".date('Y-m-d')."' AND 'closing_date' <= '".date('Y-m-d')."'"){
+	    
+		}
+		else{
+			 $insert_opening= array(
+	     	"opening_balance" => 0.0,
+	     	"closing_balance" => 0.0,
+	     	"opening_date" =>date('Y-m-d'),
+	     	"closing_date" => date('Y-m-d')
+	     );
+	     $this->db->insert("opening_closing_balance",$insert_opening);
+		}
+				$que = $this->db->query("select closing_balance from opening_closing_balance where opening_date='".date('Y-m-d')."'")->row();
+				$a = $que->closing_balance;
+				$close= $a + $this->input->post("payblamount");
+				//print_r($close);exit;
+				$bal = array(
+					"opening_balance" =>$a,
+				"closing_balance" => $close
+				);
+				//$this->db->where("school_code",$school_code);
+				$this->db->where("opening_date",date('Y-m-d'));
+				$this->db->update("opening_closing_balance",$bal);
+
+			////opening closing code end
 		
-		if($this->db->insert("student_info",$data)){
+		if($this->db->insert("student_info",$data) )
+
+		{
 			$smstext = "Dear ".$this->input->post("name")." Your selected subjects for Program Fee of ".$this->input->post("programm_name")." is =".$this->input->post("payblamount")." please Pay it by Cash or Netbanking/Debit/Creadit card. Your securty code for pay netbanking is = ".$code." .For more Details please Contact at office.DCSK MAU";
 			sms($this->input->post("mobile"),$smstext);
 		}
+		
 		redirect("index.php/login/admissionSuccess/$roll");
 		
-	
-	
 	}
 	
 	function deleteStudent(){
