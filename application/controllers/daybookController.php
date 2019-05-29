@@ -105,14 +105,14 @@
 		}
 			else if($radioOption=='monthly fee' ){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where roll_number LIKE $session% ");
-			print_r($data);exit;
+			$data['view'] =$this->db->query("select * from student_info where roll_number LIKE '$session%' AND addmissionDate >= '$strt_date' AND addmissionDate <= '$end_date' ");
+			//print_r($data);exit;
 			$this->load->view("includes/mainContent",$data);
 		}
 		else if($radioOption=='cash payment' ){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where roll_number LIKE $session% ");
-			print_r($data);exit;
+			$data['view'] =$this->db->query("select * from student_info where roll_number LIKE '$session%' AND addmissionDate >= '$strt_date' AND addmissionDate <= '$end_date' ");
+			//print_r($data);exit;
 			$this->load->view("includes/mainContent",$data);
 		}else{
 			echo "notttttttttttt";

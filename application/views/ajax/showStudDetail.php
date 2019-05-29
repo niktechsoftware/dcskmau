@@ -1,7 +1,4 @@
-<?php
-    $i = 1;
-if(isset($view)):
-?>
+
  <table id="showList" class="table table-bordered">
                                     <thead>
                                          <tr>
@@ -20,6 +17,8 @@ if(isset($view)):
                                     </thead>
                                     <tbody>
                                         <?php 
+                                         $i = 1;
+                                            if($view->num_rows()>0){
                                             foreach($view->result() as $row){
                                         ?>
                                        <tr>
@@ -38,12 +37,16 @@ if(isset($view)):
                                     <?php
                                      $i++;
                                         }
-                                       
-                                    endif;
+                                   }
+                                    else{?>
+                                       <tr> <th colspan="11" style="text-align: center; color: red;">
+                                           <?php echo "Data not found ";?>
+                                       </th></tr>
+                                  <?php  }
                                     ?>
                                     </tbody>
                                     <tfoot>
-                                        <tr>
+                                        <tr style="color: black;">
                                         <th>Sno</th>
                                         <th>Roll Number</th>
                                         <th>Leaser No</th>
@@ -58,3 +61,4 @@ if(isset($view)):
                                     </tr>
                                     </tfoot>
                                 </table>
+                               
