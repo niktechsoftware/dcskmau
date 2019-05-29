@@ -57,33 +57,38 @@
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <!-- start: CORE JAVASCRIPTS  -->
 <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script scr="https://code.jquery.com/jquery-3.3.1.js"></script>
+
 <!-- end: CORE JAVASCRIPTS  -->
 <script>
     jQuery(document).ready(function() {
     		
-    		$("#tranDetailButton").click(function(){
-		        var sessionID = $('#session_nm').val();
-		        var start_date = $('#st_date').val();
-		        var end_date = $('#end_date').val();
-           		 var radioValue = $("input[name='check_list']:checked").val();
-           		 var radioDebit = $("input[name= 'value1']:checked").val();
-		     		alert(sessionID);
-		     		alert(start_date);
-		     		alert(end_date);
-		     		alert(radioValue);
-		     		alert(radioDebit);
-		        $.post("<?php echo base_url('daybookController/daybook') ?>",{
-		     		sessionID : sessionID,
-		     		start_date : start_date,
-		     		end_date : end_date,
-		     		 radioValue : radioValue,
-		     			radioDebit : radioDebit}, function(data){
-		                $("<?php echo base_url('daybookController/daybook') ?>").html(data);
-		               alert(data);
-		        });
-		       // $('#addExam').val("");
-		        });
+    		// $("#tranDetailButton").click(function(){
+		    //     var sessionID = $('#session_nm').val();
+		    //     var start_date = $('#st_date').val();
+		    //     var end_date = $('#end_date').val();
+      //      		 var radioValue = $("input[name='check_list']:checked").val();
+      //      		 var radioDebit = $("input[name= 'value1']:checked").val();
+		    //  		alert(sessionID);
+		    //  		alert(start_date);
+		    //  		alert(end_date);
+		    //  		alert(radioValue);
+		    //  		alert(radioDebit);
+		    //     $.post("<?php //echo base_url('daybookController/daybook') ?>",{
+		    //  		sessionID : sessionID,
+		    //  		start_date : start_date,
+		    //  		end_date : end_date,
+		    //  		 radioValue : radioValue,
+		    //  			radioDebit : radioDebit}, function(data){
+		    //             $("<?php //echo base_url('daybookController/daybook') ?>").html(data);
+		    //            alert(data);
+		    //     });
+		    //    // $('#addExam').val("");
+		    //     });
 
+				    $('#showdayList').DataTable();
+				
         Main.init();
         SVExamples.init();
         Index.init();

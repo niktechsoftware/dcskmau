@@ -84,33 +84,59 @@
 
 		public function daybook(){
 			$data['pageTitle'] = 'Fees Section';
-		$data['smallTitle'] = 'Fees Infomation';
+		$data['smallTitle'] = 'Fees Information';
 		$data['mainPage'] = 'Fees Details';
-		$data['subPage'] = ' All Infomation';
+		$data['subPage'] = ' All Information';
 		$data['title'] = 'Fees Information Section';
 		$data['headerCss'] = 'headerCss/trancationCss';
 		$data['footerJs'] = 'footerJs/trancationJs';
-		$data['mainContent'] = 'trancation1';
-		$session = $this->input->post('sessionID');
-		$strt_date = $this->input->post('start_date');
+		$data['mainContent'] = 'ajax/trancation1';
+		$session = $this->input->post('session_nm');
+		$strt_date = $this->input->post('st_date');
 		$end_date = $this->input->post('end_date');
-		$radioOption = $this->input->post('radioValue');
-		$debitShowOption = $this->input->post('radioDebit');
+		$radioOption = $this->input->post('check_list');
+		$debitShowOption = $this->input->post('value1');
 
-		// print_r($session);
-		// print_r($strt_date);
-		// print_r($end_date);
-		// print_r($radioOption);
-		// print_r($debitShowOption);
 			if($radioOption=='all' ){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where  roll_number like '$session%'");
-			print_r($data);exit;
-			$this->load->view("ajax/trancation1",$data);
+			$data['view'] =$this->db->query("select * from student_info where roll_number LIKE '$session%' AND addmissionDate >= '$strt_date' AND addmissionDate <= '$end_date'");
+			//print_r($data);exit;
+			$this->load->view("includes/mainContent",$data);
+		}
+			else if($radioOption=='monthly fee' ){
+			//$school_code = $this->session->userdata("school_code");
+			$data['view'] =$this->db->query("select * from student_info where roll_number LIKE '$session%' AND addmissionDate >= '$strt_date' AND addmissionDate <= '$end_date' ");
+			//print_r($data);exit;
+			$this->load->view("includes/mainContent",$data);
+		}
+		else if($radioOption=='cash payment' ){
+			//$school_code = $this->session->userdata("school_code");
+			$data['view'] =$this->db->query("select * from student_info where roll_number LIKE '$session%' AND addmissionDate >= '$strt_date' AND addmissionDate <= '$end_date' ");
+			//print_r($data);exit;
+			$this->load->view("includes/mainContent",$data);
 		}else{
 			echo "notttttttttttt";
-				$this->load->view("ajax/trancation1",$data);
+				$this->load->view("includes/mainContent",$data);
 			}
+		}
+
+		public function recieptNo(){
+			$data['pageTitle'] = 'Fees Section';
+		$data['smallTitle'] = 'Fees Information';
+		$data['mainPage'] = 'Fees Details';
+		$data['subPage'] = ' All Information';
+		$data['title'] = 'Fees Information Section';
+		$data['headerCss'] = 'headerCss/trancationCss';
+		$data['footerJs'] = 'footerJs/trancationJs';
+		$data['mainContent'] = 'ajax/recieptNo';
+			$id = $this->uri->segment('3');
+			$this->db->where('roll_number',$id);
+			$data['view'] = $this->db->get('student_info');
+			//print_r($data);exit;
+			$this->load->view("includes/mainContent",$data);
+			//print_r($re);
+
+
 		}
 	}
 ?>

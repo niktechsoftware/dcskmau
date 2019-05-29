@@ -43,19 +43,16 @@
             	</div>
             	<div class="row">
             		 <div class="col-md-12 space20">
-            		 	<div class="col-md-3">
+            		 	<div class="col-md-4">
             		 			<input type="radio" name="check_list" value="all" required="required">
                        			 All
                     	</div>
-                     	<div class="col-md-3">
+                     	<div class="col-md-4">
                         		<input type="radio" name="check_list" value="monthly fee" required="required">
                        			 Monthly Fee
                      	</div>
-                     	<div class="col-md-3">
-                        		<input type="radio" name="check_list" value="yearly Fee" required="required">
-                        		Yearly Fee
-                     	</div>
-                     	<div class="col-md-3">
+                     	
+                     	<div class="col-md-4">
                         		<input type="radio" name="check_list" value="cash payment" required="required">
                         		Cash Payment
                      	</div>
@@ -90,7 +87,7 @@
                 <div class="row">
             		 <div class="col-md-6">
             		 	<div class="col-md-4">
-                    			<input type="submit" name="dbd" id="tranDetailButton" value="Get Day Book Detail" class="submit btn btn-blue">
+                    			<input type="submit" name="dbd" id="" value="Get Day Book Detail" class="submit btn btn-blue">
                     	</div>
                     </div>
                  </div>   	

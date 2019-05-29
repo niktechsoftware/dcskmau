@@ -84,6 +84,7 @@ function showSubject(){
 		$data['gender']	=	$this->input->post("gender");
 		$data['category']	=	$this->input->post("category");
 		$data['fee']	=	$this->input->post("payblamount");
+		$data['reciept_no'] = 'Inv'.$this->input->post("stud_id");
 		$data['scode']	=	$code;
 		$data['fee_status']	= $fee_status;
 		$data['date']           = date("Y-m-d");
@@ -91,31 +92,42 @@ function showSubject(){
 		$data['addmissionDate'] = date("Y-m-d");
 	     $data['status']	= "confirmation";
 		///opening closing code start
-	     $this->db->get("opening_closing_balance");
-	     if("'opening_date' <='".date('Y-m-d')."' AND 'closing_date' <= '".date('Y-m-d')."'"){
-	    
-		}
-		else{
-			 $insert_opening= array(
-	     	"opening_balance" => 0.0,
-	     	"closing_balance" => 0.0,
-	     	"opening_date" =>date('Y-m-d'),
-	     	"closing_date" => date('Y-m-d')
-	     );
-	     $this->db->insert("opening_closing_balance",$insert_opening);
-		}
-				$que = $this->db->query("select closing_balance from opening_closing_balance where opening_date='".date('Y-m-d')."'")->row();
-				$a = $que->closing_balance;
+	     $this->db->where("opening_date",date("Y-m-d"));
+	  $table =  $this->db->get("opening_closing_balance");
+	  		
+	     if($table->num_rows()>0){
+
+          $a = $table->row()->closing_balance;
 				$close= $a + $this->input->post("payblamount");
-				//print_r($close);exit;
-				$bal = array(
-					"opening_balance" =>$a,
-				"closing_balance" => $close
+	     	$cr_date = date('Y-m-d');
+				$balance = array(
+						"closing_balance" => $close,
+						"closing_date" => $cr_date,
 				);
 				//$this->db->where("school_code",$school_code);
-				$this->db->where("opening_date",date('Y-m-d'));
-				$this->db->update("opening_closing_balance",$bal);
+				$this->db->where("opening_date",date("Y-m-d"));
+		}
+		 else{
+		 	 $clo =  $this->db->query("select * from opening_closing_balance")->row();
+//print_r($clo);
+            $cl_date = $clo->closing_date;
+			$cl_balance = $clo->closing_balance;
+			$cr_date = date('Y-m-d');
 
+			if($cl_date != $cr_date)
+			{
+				$balance = array(
+						"opening_balance" => $cl_balance,
+						"closing_balance" => $cl_balance + $this->input->post("payblamount"),
+						"opening_date" => $cr_date,
+						"closing_date" => $cr_date
+						//"school_code"=>$school_code
+				);
+				$this->db->insert('opening_closing_balance',$balance);
+				
+			}
+
+}
 			////opening closing code end
 		
 		if($this->db->insert("student_info",$data) )
