@@ -101,7 +101,7 @@
 			<h4 class="panel-title"> Today Day Book Account</h4>
 			</div>
       <?php 
-      $view = $this->db->query("select * from opening_closing_balance where opening_date = '".date('Y-m-d')."' AND closing_date = '".date('Y-m-d')."'")->row();
+      $view = $this->db->query("select * from opening_closing_balance where opening_date = '".date('Y-m-d')."' AND closing_date = '".date('Y-m-d')."'");
       ?>
 			<div class="panel-body">
            <div class="row">
@@ -112,12 +112,13 @@
             		</div>
             		<div class="form-group">
             			<label class="control-label">Opening Balance</label>
-            			<input type="text" style="margin-left: 100px;" value="<?php echo $view->opening_balance;?>" disabled="disabled"/>
+									<?php if ($view->num_rows() >0) { ?>
+            			<input type="text" style="margin-left: 100px;" value="<?php echo $openingbalance= $view->opening_balance;?>" disabled="disabled"/>
+									<?php } else {?>
+            			<input type="text" style="margin-left: 100px;" value="0.00" disabled="disabled"/>
+									<?php }?>
             		</div>
-            		<div class="form-group">
-            			<label class="control-label">Fee &amp; Admission</label>
-            			<input type="text" style="margin-left: 100px;" value ="" disabled="disabled"/>
-            		</div>
+
             	</div>
             	 <div class="col-md-6">
             	 	<div class="form-group">
@@ -127,7 +128,20 @@
             			<label class="control-label">
             				<span>Closing Balance</span>
             			</label>
-            			<input type="text" style="margin-left: 100px;" value="<?php echo $view->closing_balance; ?>" disabled="disabled"/>
+									<?php if ($view->num_rows() >0) {?>
+            			<input type="text" style="margin-left: 100px;" value="<?php echo $clossingbalance= $view->closing_balance; ?>" disabled="disabled"/>
+									<?php } else {?>
+            			<input type="text" style="margin-left: 100px;" value="0.00" disabled="disabled"/>
+									<?php }?>
+            		</div>
+								<div class="form-group">
+            			<label class="control-label">Fee &amp; Admission</label>
+									<?php if ($view->num_rows() >0) { ?>
+            		<input type="text" style="margin-left: 100px;" value ="<?php echo $openingbalance-$clossingbalance ;?>" disabled="disabled"/>
+								<?php } else {?>
+									<input type="text" style="margin-left: 100px;" value ="0.00" disabled="disabled"/>
+									<?php }?>
+							
             		</div>
             		
             	</div>
