@@ -1,6 +1,5 @@
-<div class="container">
-    <div class="row .table">
-        <div class="col-md-12" style="background-color: #f5f5f5;">
+<div class="row table">
+        <div class="col-md-12" style="background-color: #f5f5f5; border: 1px solid;">
             <div class="row">
                 <div class="col-md-2" width="10%" style="border: none;padding: 50px;">
                      <img src="<?php echo base_url()?>/assets/images/invoice_logo.jpg" alt="" width="100" />
@@ -18,35 +17,43 @@
                                     </h3>
                 </div>
             </div>
-             <?php 
+                         <?php 
                                 $row = $view->row();
                             ?> 
             <div class="row" style="margin: 20px;">
                 <div class="col-md-3">
-                     <img src="<?php echo base_url()?>/assets/images/2018studentImages/<?php echo $row->student_image;?>">
+                     <!-- <img src="<?php echo base_url()?>/assets/images/2018studentImages/<?php echo $row->student_image;?>"> -->
+                      <img alt="<?= $row->name; ?>" height="115" width="110" src="<?= base_url(); ?>assets/images/stuImage/<?= $row->student_image;; ?>" />
                 </div>
                 <div class="col-md-9"></div>
             </div>
-            <div class="row" style="margin: 20px;">
-                <div class="col-md-6 text-center">
-                    <h4>Student Detail</h4></div>
-                <div class="col-md-6 text-center"><h4>Cash Payment</h4></div>
+            <div class="row">
+                <div class="col-md-6">
+                   <h3 style="color: black;" class="text-center">Student Detail</h3>
+                    <div class="row " style="margin: 20px;padding: 10px;">
+                        <div class="col-md-6" style="color: black;">Student Name</div>
+                        <div class="col-md-6" style="color: black;"><?php echo $row->name;?></div>
+                    </div>
+                    <div class="row" style="margin: 20px;padding: 10px;">
+                        <div class="col-md-6" style="color: black;">Roll No.</div>
+                         <div class="col-md-6" style="color: black;"><?php echo $row->roll_number;?></div>
+                     </div>
+                </div>
+                <div class="col-md-6">
+                     <h3 style="color: black;" class="text-center">Cash Payment</h3>
+                      <div class="row " style="margin: 20px;padding: 10px;">
+                          <div class="col-md-3" style="color: black;">Reciept No</div>
+                        <div class="col-md-3" style="color: black;"><?php echo $row->reciept_no;?></div>
+                    </div>
+                    <div class="row" style="margin: 20px;padding: 10px;">
+                         <div class="col-md-3" style="color: black;">Date</div>
+                         <div class="col-md-3" style="color: black;"><?php echo $row->addmissionDate;?></div>
+                     </div>
+                </div>
             </div>
-            <div class="row" style="margin: 20px;">
-                <div class="col-md-3">Student Name</div>
-                <div class="col-md-3"><?php echo $row->name;?></div>
-                <div class="col-md-3">Reciept No</div>
-                <div class="col-md-3"><?php echo $row->reciept_no;?></div>
-             </div>
-             <div class="row" style="margin: 20px;">
-                 <div class="col-md-3">Student Roll No.</div>
-                 <div class="col-md-3"><?php echo $row->roll_number;?></div>
-                 <div class="col-md-3">Date</div>
-                 <div class="col-md-3"><?php echo $row->addmissionDate;?></div>
-             </div>
              <div class="row " style="margin: 20px;">
                 <div class="col-md-12">
-                    <table class=".table .table-bordered"">
+                    <table class="table table-bordered">
                          <tr class="bg-primary">
                                    <th class="text-center">No.</th>
                                    <th class="text-center">Fees Description</th>
@@ -62,7 +69,7 @@
                     </table>
                 </div>
             </div>
-            <div class="row">
+             <div class="row">
                 <div class="col-md-12">
                     <button onclick="myFunction()">Print </button>
 
@@ -75,4 +82,3 @@
             </div>
         </div>
     </div>
-</div>

@@ -57,7 +57,6 @@
 									<th>Leaser</th>
 									<th>Fee Status</th>
 									<th>Promotion</th>
-									<th>Status</th>
 								</tr>
 							</thead>
 							<tbody id="tableBody"></tbody>
@@ -109,7 +108,6 @@
                                 <td>
                                     ${button}
                                 </td>
-                                <td></td>
                             </tr>`
                 }).join('')
                 $("#tableBody").html(optionString)
