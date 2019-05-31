@@ -10,7 +10,7 @@ function sms($number,$msg)
 }
 function checkBalSms()
 { 
-//$url = "http://bulksms.gfinch.in/api/checkbalance.php?user=dcsmau&pass=ghazipur@123";
+$url = "http://bulksms.gfinch.in/api/checkbalance.php?user=dcsmau&pass=ghazipur@123";
 $ch = curl_init();
 curl_setopt($ch,CURLOPT_URL,$url);
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);

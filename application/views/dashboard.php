@@ -142,13 +142,14 @@ if(($is_login == "admin") || ($is_login == "accountent")){
             <div class="panel-body no-padding">
                 <div class="partition-blue padding-20 text-center core-icon">
                     <i class="fa fa-users fa-2x icon-big"></i>
+                     <?php $t = $this->db->get("student_info");
+                   $t =  $t->num_rows();?>
+                    <span class="subtitle"> <?php echo $t;?>. </span>
                 </div>
                 <a href="#">
                 <div class="padding-20 core-content">
-                    <h4 class="title block no-margin">Student Registration</h4>
-                    <?php $t = $this->db->get("student_info");
-                   $t =  $t->num_rows();?>
-                    <span class="subtitle"> <?php echo $t;?>. </span>
+                    <h4 class="title block no-margin"> Total Student Registration</h4>
+                   
                 </div>
                 </a>
             </div>
@@ -160,11 +161,17 @@ if(($is_login == "admin") || ($is_login == "accountent")){
         <div class="panel panel-default panel-white core-box">
             <div class="panel-body no-padding">
                 <div class="partition-red padding-20 text-center core-icon">
+                    <?php
+                           $this->db->where("closing_date",date('Y-m-d'));
+                        $row = $this->db->get("opening_closing_balance")->row();
+
+                    ?>
                     <i class="fa fa-tasks fa-2x icon-big"></i>
+                    <?php echo $row->closing_balance;?>
                 </div>
                 <a href="#">
                 <div class="padding-20 core-content">
-                    <h4 class="title block no-margin">Cash Fee Report</h4>
+                    <h4 class="title block no-margin">Today Fee Collection</h4>
                     <br/>
                     <span class="subtitle"> . </span>
                 </div>
@@ -175,14 +182,23 @@ if(($is_login == "admin") || ($is_login == "accountent")){
     <div class="col-md-6 col-lg-3 col-sm-6">
         <div class="panel panel-default panel-white core-box">
             <div class="panel-body no-padding">
-                <div class="partition-azure padding-20 text-center core-icon">
+                <div class="partition-azure padding-20 text-center core-icon" >
+                    <?php
+                       
+                       // print_r($row);
+                         $open = $row->opening_balance;
+                         $close = $row->closing_balance;
+                         $benefit = $close-$open;
+                        
+                    ?>
                     <i class="fa fa-book fa-2x icon-big"></i>
+                    <span ><?php echo $benefit;?></span>
                 </div>
                 <a href="#">
                 <div class="padding-20 core-content">
                     <h4 class="title block no-margin">Day Book</h4>
                     <br/>
-                    <span class="subtitle"> Access the Day Book. </span>
+                    <span class="subtitle"> Today Benefit. </span>
                 </div>
                 </a>
             </div>

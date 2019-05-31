@@ -102,10 +102,11 @@ function showSubject(){
 	     	$cr_date = date('Y-m-d');
 				$balance = array(
 						"closing_balance" => $close,
-						"closing_date" => $cr_date,
+						"closing_date" => $cr_date
 				);
 				//$this->db->where("school_code",$school_code);
 				$this->db->where("opening_date",date("Y-m-d"));
+				$this->db->update('opening_closing_balance',$balance);
 		}
 		 else{
 		 	 $clo =  $this->db->query("select * from opening_closing_balance")->row();

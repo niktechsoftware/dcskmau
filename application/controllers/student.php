@@ -199,6 +199,43 @@
         		$dataArray["fee"] = $this->input->post("addfee");
         	}
         	
+              //fee add code in opening closing table
+            $this->db->where("opening_date",date('Y-m-d'));
+            $table = $this->db->get("opening_closing_balance");
+          //  print_r($table->result());exit;
+            if($table->num_rows()>0){
+
+          $a = $table->row()->closing_balance;
+                $close= $a + $this->input->post("addfee");
+            $cr_date = date('Y-m-d');
+                $balance = array(
+                        "closing_balance" => $close,
+                        "closing_date" => $cr_date,
+                );
+                //$this->db->where("school_code",$school_code);
+                $this->db->where("opening_date",date("Y-m-d"));
+                 $this->db->update('opening_closing_balance',$balance);
+             }
+         else{
+             $clo =  $this->db->query("select * from opening_closing_balance")->row();
+            $cl_date = $clo->closing_date;
+            $cl_balance = $clo->closing_balance;
+            $cr_date = date('Y-m-d');
+            if($cl_date != $cr_date)
+            {
+                $balance = array(
+                        "opening_balance" => $cl_balance,
+                        "closing_balance" => $cl_balance + $this->input->post("addfee"),
+                        "opening_date" => $cr_date,
+                        "closing_date" => $cr_date
+                        //"school_code"=>$school_code
+                );
+                $this->db->insert('opening_closing_balance',$balance);
+            }
+
+            }
+            
+            //end code
         	
         	$courseFee = $this->db->query("INSERT INTO `student_info_old` SELECT * FROM `student_info` WHERE `roll_number` = '$rollNo'");
         	

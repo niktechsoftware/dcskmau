@@ -101,9 +101,47 @@
       <h4 class="panel-title"> Today Day Book Account</h4>
       </div>
       <?php 
-      $view = $this->db->query("select * from opening_closing_balance where opening_date = '".date('Y-m-d')."' AND closing_date = '".date('Y-m-d')."'")->row();
-      ?>
-      <div class="panel-body">
+      $view = $this->db->query("select * from opening_closing_balance where opening_date <= '".date('Y-m-d')."' AND closing_date <= '".date('Y-m-d')."'")->row();
+    // $b = $this->db->get("opening_closing_balance")->row();
+    // $a = $view->result();
+     //$b = $a->opening_balance;
+     // print_r($view->opening_date);exit;
+      if($view->opening_date < 'date("Y-m-d")'){
+        ?>
+            <div class="panel-body">
+           <div class="row">
+             
+              <div class="col-md-6">
+                <div class="form-group">
+                  <H3 style="margin-left: 100px;">Debit</H3>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Opening Balance</label>
+                  <input type="text" style="margin-left: 100px;" value="<?php echo $view->closing_balance;?>" disabled="disabled"/>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Fee &amp; Admission</label>
+                  <input type="text" style="margin-left: 100px;" value ="" disabled="disabled"/>
+                </div>
+              </div>
+               <div class="col-md-6">
+                <div class="form-group">
+                  <H3 style="margin-left: 100px;">Credit</H3>
+                </div>
+                  <div class="form-group">
+                  <label class="control-label">
+                    <span>Closing Balance</span>
+                  </label>
+                  <input type="text" style="margin-left: 100px;" value="0.0" disabled="disabled"/>
+                </div>
+                
+              </div>
+             
+              </div>
+            </div>
+            <?php
+      }else{?>
+        <div class="panel-body">
            <div class="row">
             <div class="col-md-12"> 
               <div class="col-md-6">
@@ -134,6 +172,8 @@
               </div>
               </div>
             </div>
+    <?php   }
+        ?>
         </div>
     </div>
 </div>

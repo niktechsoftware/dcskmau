@@ -96,7 +96,7 @@
                 let optionString = response.result.map(val => { 
                     
                     let button = val.leaser_no == '' || val.leaser_no == null ? `<a href="<?= base_url() ?>student/printSlip/${val.roll_number}" class="btn btn-default">Print</a>` : `<a href="<?= base_url() ?>student/promote/${val.sno}" class="btn btn-default">Promote</a>`
-                    
+                    let status=val.status;
                     return `<tr id="tr_button_${val.sno}">
                                 <td>${val.sno}</td>
                                 <td>${val.roll_number}</td>
@@ -109,7 +109,9 @@
                                 <td>
                                     ${button}
                                 </td>
-                                <td></td>
+                                <td> ${status}
+                              <?php  if('status'==1){echo "active";}else{echo "inactive";} ?>
+                                	</td>
                             </tr>`
                 }).join('')
                 $("#tableBody").html(optionString)

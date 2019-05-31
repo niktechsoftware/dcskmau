@@ -58,6 +58,22 @@
 		<!-- end: CORE JAVASCRIPTS  -->
 		<script>
 			jQuery(document).ready(function() {
+				//status button
+					function doStuff() {
+    console.log("Hello World!")
+}
+function toggle(button) {
+    if(button.value=="OFF") {
+        button.value="ON"
+        button.innerHTML="ON"
+        this.interval = setInterval(doStuff, 1000);
+    } else if(button.value=="ON") {
+        button.value="OFF"
+        button.innerHTML="OFF"
+        clearInterval(this.interval)
+    }
+}
+				//status end
 				TableExport.init();
 				Main.init();
 				SVExamples.init();
