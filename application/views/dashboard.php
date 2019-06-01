@@ -17,8 +17,8 @@ if(($is_login == "admin") || ($is_login == "accountent")){
 		{
 			$val = $this->db->get("sms_setting")->row();
 			
-			$school_info = mysql_query("select * from general_settings");
-			$info = mysql_fetch_object($school_info);
+			$school_info = mysqli_query($this->db->conn_id,"select * from general_settings");
+			$info = mysqli_fetch_object($this->db->conn_id,$school_info);
 			$isSMS = $this->db->get("sms")->row()->parent_message;
 			$i=0;
 			$fmobile=$this->session->userdata("mobile_number");
@@ -162,12 +162,18 @@ if(($is_login == "admin") || ($is_login == "accountent")){
             <div class="panel-body no-padding">
                 <div class="partition-red padding-20 text-center core-icon">
                     <?php
-                           $this->db->where("closing_date",date('Y-m-d'));
-                        $row = $this->db->get("opening_closing_balance")->row();
+                         //  $this->db->where("closing_date",date('Y-m-d'));
+                        //$row = $this->db->get("opening_closing_balance")->row();
+                      $view = $this->db->query("select * from opening_closing_balance where opening_date <= '".date('Y-m-d')."' AND closing_date <= '".date('Y-m-d')."'")->row();
 
                     ?>
                     <i class="fa fa-tasks fa-2x icon-big"></i>
-                    <?php echo $row->closing_balance;?>
+
+                    <?php
+                            if($view->opening_date < 'date("Y-m-d")'){
+                                echo "0.0";
+                            }else{
+                     echo $row->closing_balance;}?>
                 </div>
                 <a href="#">
                 <div class="padding-20 core-content">
@@ -186,13 +192,16 @@ if(($is_login == "admin") || ($is_login == "accountent")){
                     <?php
                        
                        // print_r($row);
-                         $open = $row->opening_balance;
-                         $close = $row->closing_balance;
+                         $open = $view->opening_balance;
+                         $close = $view->closing_balance;
                          $benefit = $close-$open;
                         
                     ?>
                     <i class="fa fa-book fa-2x icon-big"></i>
-                    <span ><?php echo $benefit;?></span>
+                    <span ><?php if($view->opening_date < 'date("Y-m-d")'){
+                        echo "0.0";
+                    }else{
+                    echo $benefit;}?></span>
                 </div>
                 <a href="#">
                 <div class="padding-20 core-content">
