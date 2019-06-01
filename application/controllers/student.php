@@ -284,7 +284,7 @@
     	}
     	
     	public function electionStudent() {
-    	    $result = $this->db->query("SELECT DISTINCT `course` FROM `search_with_photo` WHERE 1 ORDER BY `course` ASC;")->result();
+    	    $result = $this->db->query("SELECT DISTINCT `course` FROM `search_with_photo` WHERE  1 ORDER BY `course` ASC;")->result();
     	    $data = Array(
     	        "pageTitle"     => 'Election Student',
     	        "smallTitle"    => '',
@@ -300,7 +300,7 @@
     	}
     	public function getElectionYears() {
     	    $course = $this->input->post("course");
-    	    $result = $this->db->query("SELECT DISTINCT `year` FROM `search_with_photo` WHERE `course` = '$course' ORDER BY `year` ASC;")->result();
+    	    $result = $this->db->query("SELECT DISTINCT `year` FROM `search_with_photo` WHERE  `course` = '$course' ORDER BY `year` ASC;")->result();
     	    $response = Array("response" => $result);
     	    echo json_encode($response);
     	}
@@ -313,10 +313,10 @@
     	    $course = $this->input->post("course");
     	     $subject = $this->input->post("subject");
     	     if($subject=="as"){
-    	         $result = $this->db->query("SELECT * FROM `student_info` WHERE `course` = '$course' AND `year` = '$year' AND (`addmissionDate` > '$start_fsd') ORDER BY `sno` ASC;")->result();
+    	         $result = $this->db->query("SELECT * FROM `student_info` WHERE `status` = 1 AND `course` = '$course' AND `year` = '$year' AND (`addmissionDate` > '$start_fsd') ORDER BY `sno` ASC;")->result();
     	     
     	     }else{
-    	        $result = $this->db->query("SELECT * FROM `student_info` WHERE `course` = '$course' AND `year` = '$year' AND (`addmissionDate` > '$start_fsd') AND (`subject1`='$subject' OR `subject2`='$subject' OR `subject3`='$subject')  ORDER BY `sno` ASC;")->result();
+    	        $result = $this->db->query("SELECT * FROM `student_info` WHERE `status` = 1 AND `course` = '$course' AND `year` = '$year' AND (`addmissionDate` > '$start_fsd') AND (`subject1`='$subject' OR `subject2`='$subject' OR `subject3`='$subject')  ORDER BY `sno` ASC;")->result();
     	     
     	     }
     	   // $result = $this->db->query("SELECT * FROM `student_info1` WHERE `course` = '$course' AND `year` = '$year' AND (`subject1`='$subject' OR `subject2`='$subject' OR `subject3`='$subject')  ORDER BY `sno` ASC;")->result();

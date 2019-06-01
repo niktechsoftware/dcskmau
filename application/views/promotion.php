@@ -110,7 +110,8 @@
                                     ${button}
                                 </td>
                                 <td> ${status}
-                              <?php  if('status'==1){echo "active";}else{echo "inactive";} ?>
+                               
+                               if(${status} == 1){document.write("Active");} else{document.write("Inactive");} 
                                 	</td>
                             </tr>`
                 }).join('')

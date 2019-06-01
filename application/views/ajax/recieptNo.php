@@ -17,6 +17,7 @@
                                     </h3>
                 </div>
             </div>
+            <hr>
                          <?php 
                                 $row = $view->row();
                             ?> 

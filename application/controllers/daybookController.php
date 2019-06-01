@@ -20,60 +20,60 @@
 			$sessionID = $this->input->post('sessionID');
 			if($radioValue=='all'){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%'");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%'");
 			$this->load->view("ajax/showStudDetail",$data);
 		}else
 		if($radioValue=='GEN MALE'){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'MALE' AND category = 'GEN' ");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'MALE' AND category = 'GEN' ");
 			$this->load->view("ajax/showStudDetail",$data);
 		}
 		else
 		if($radioValue=='GEN FEMALE'){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'FEMALE' AND category = 'GEN' ");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'FEMALE' AND category = 'GEN' ");
 			$this->load->view("ajax/showStudDetail",$data);
 		}
 		else
 		if($radioValue=='GEN BOTH'){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%'  AND category = 'GEN' ");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%'  AND category = 'GEN' ");
 			$this->load->view("ajax/showStudDetail",$data);
 		}
 		else
 		if($radioValue=='OBC MALE'){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'MALE' AND category = 'OBC' ");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'MALE' AND category = 'OBC' ");
 			$this->load->view("ajax/showStudDetail",$data);
 		}
 		else
 		if($radioValue=='OBC FEMALE'){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'FEMALE' AND category = 'OBC' ");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'FEMALE' AND category = 'OBC' ");
 			$this->load->view("ajax/showStudDetail",$data);
 		}
 		else
 		if($radioValue=='OBC BOTH'){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND category = 'OBC' ");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND category = 'OBC' ");
 			$this->load->view("ajax/showStudDetail",$data);
 		}
 		else
 		if($radioValue=='SC MALE'){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'MALE' AND category = 'SC' ");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'MALE' AND category = 'SC' ");
 			$this->load->view("ajax/showStudDetail",$data);
 		}
 		else
 		if($radioValue=='SC FEMALE'){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'FEMALE' AND category = 'SC' ");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND gender = 'FEMALE' AND category = 'SC' ");
 			$this->load->view("ajax/showStudDetail",$data);
 		}
 		else
 		if($radioValue=='SC BOTH'){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND category = 'SC' ");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND year = '$yearID' AND course = '$courseID' and roll_number like '$sessionID%' AND category = 'SC' ");
 			$this->load->view("ajax/showStudDetail",$data);
 		}
 		else{
@@ -99,19 +99,19 @@
 
 			if($radioOption=='all' ){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where roll_number LIKE '$session%' AND addmissionDate >= '$strt_date' AND addmissionDate <= '$end_date'");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND roll_number LIKE '$session%' AND addmissionDate >= '$strt_date' AND addmissionDate <= '$end_date'");
 			//print_r($data);exit;
 			$this->load->view("includes/mainContent",$data);
 		}
 			else if($radioOption=='monthly fee' ){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where roll_number LIKE '$session%' AND addmissionDate >= '$strt_date' AND addmissionDate <= '$end_date' ");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND roll_number LIKE '$session%' AND addmissionDate >= '$strt_date' AND addmissionDate <= '$end_date' ");
 			//print_r($data);exit;
 			$this->load->view("includes/mainContent",$data);
 		}
 		else if($radioOption=='cash payment' ){
 			//$school_code = $this->session->userdata("school_code");
-			$data['view'] =$this->db->query("select * from student_info where roll_number LIKE '$session%' AND addmissionDate >= '$strt_date' AND addmissionDate <= '$end_date' ");
+			$data['view'] =$this->db->query("select * from student_info where status = 1  AND roll_number LIKE '$session%' AND addmissionDate >= '$strt_date' AND addmissionDate <= '$end_date' ");
 			//print_r($data);exit;
 			$this->load->view("includes/mainContent",$data);
 		}else{
