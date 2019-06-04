@@ -96,7 +96,17 @@
                 let optionString = response.result.map(val => { 
                     
                     let button = val.leaser_no == '' || val.leaser_no == null ? `<a href="<?= base_url() ?>student/printSlip/${val.roll_number}" class="btn btn-default">Print</a>` : `<a href="<?= base_url() ?>student/promote/${val.sno}" class="btn btn-default">Promote</a>`
+
                     let status=val.status;
+
+                    if(status ==1){
+                    	var rt ="Active";
+
+                    }
+                    else{
+                    	var rt ="InActive";
+                    }
+                     let rollNo =val.roll_number;
                     return `<tr id="tr_button_${val.sno}">
                                 <td>${val.sno}</td>
                                 <td>${val.roll_number}</td>
@@ -106,20 +116,30 @@
                                 <td>${val.course}</td>
                                 <td>${val.leaser_no}</td>
                                 <td>${val.fee_status}</td>
-                                <td>
-                                    ${button}
+                                <td>${button}</td>
+                                <td ><input type="hidden" value="${rollNo}" id="editId">
+                                	<button class="btn btn-default" id="${rollNo}" name="status" onclick="myFunction(this)">${rt}</button>
+                                	
                                 </td>
-                                <td> ${status}
-                               
-                               if(${status} == 1){document.write("Active");} else{document.write("Inactive");} 
-                                	</td>
                             </tr>`
                 }).join('')
                 $("#tableBody").html(optionString)
             }
         })
     }
-    
+ function myFunction(stID) {
+ 	let status = stID.id;
+ 	alert(status);
+
+ $.ajax({
+					url: "<?= base_url() ?>student/updatestatus",
+					type: 'POST',
+					data: {"status": status},
+					success: function(data){
+						$("#status").html(data);
+					}
+				});
+}
 </script>
 									
 

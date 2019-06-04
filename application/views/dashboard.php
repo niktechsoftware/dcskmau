@@ -18,7 +18,7 @@ if(($is_login == "admin") || ($is_login == "accountent")){
 			$val = $this->db->get("sms_setting")->row();
 			
 			$school_info = mysqli_query($this->db->conn_id,"select * from general_settings");
-			$info = mysqli_fetch_object($this->db->conn_id,$school_info);
+			$info = mysqli_fetch_object($school_info);
 			$isSMS = $this->db->get("sms")->row()->parent_message;
 			$i=0;
 			$fmobile=$this->session->userdata("mobile_number");
@@ -165,15 +165,14 @@ if(($is_login == "admin") || ($is_login == "accountent")){
                          //  $this->db->where("closing_date",date('Y-m-d'));
                         //$row = $this->db->get("opening_closing_balance")->row();
                       $view = $this->db->query("select * from opening_closing_balance where opening_date <= '".date('Y-m-d')."' AND closing_date <= '".date('Y-m-d')."'")->row();
-
                     ?>
                     <i class="fa fa-tasks fa-2x icon-big"></i>
 
-                    <?php
-                            if($view->opening_date < 'date("Y-m-d")'){
-                                echo "0.0";
-                            }else{
-                     echo $row->closing_balance;}?>
+                    <?php //print_r($view->opening_date == date('Y-m-d'));
+                            if($view->opening_date == date('Y-m-d')){
+                              echo $view->closing_balance; 
+                              }else{echo "0.0";}
+                    ?>
                 </div>
                 <a href="#">
                 <div class="padding-20 core-content">
@@ -198,10 +197,10 @@ if(($is_login == "admin") || ($is_login == "accountent")){
                         
                     ?>
                     <i class="fa fa-book fa-2x icon-big"></i>
-                    <span ><?php if($view->opening_date < 'date("Y-m-d")'){
-                        echo "0.0";
+                    <span ><?php if($view->opening_date == date('Y-m-d')){
+                        echo $benefit;
                     }else{
-                    echo $benefit;}?></span>
+                   echo "0.0"; }?></span>
                 </div>
                 <a href="#">
                 <div class="padding-20 core-content">

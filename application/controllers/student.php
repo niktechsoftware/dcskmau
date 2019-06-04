@@ -375,6 +375,31 @@
     	    echo json_encode($response);
     	}
     	
+
+
+        public function updatestatus() {
+
+         $status = $this->input->post('status');
+        $this->db->where('roll_number',$status);
+      $studentid=$this->db->get('student_info')->row()->status;
+      if($studentid == 1){
+        $data= array("status" => 0);
+        print_r($data);
+        $this->db->where('roll_number',$status);
+        $this->db->update("student_info",$data);
+
+    }else{
+        $data= array("status" => 1);
+         $this->db->where('roll_number',$status);
+        $this->db->update("student_info",$data);
+    }
+       //print_r($studentid);
+          /* $data= array(
+"status" => 0
+           )
+        $this->db->update("student_info",$data);*/
+           
+        }
 			
 			
     }

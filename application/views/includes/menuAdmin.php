@@ -69,7 +69,16 @@
         </li>
     </ul>
 </li>
-
+<li>
+    <a href="javascript:void(0)"><i class="fa fa-th-large"></i> <span class="title">Accountent Configuration </span><i class="icon-arrow"></i> </a>
+    <ul class="sub-menu">
+        <li>
+            <a href="<?php echo base_url(); ?>configure/assinAccount">
+                <span class="title">Assign Account</span>
+            </a>
+        </li>
+    </ul>
+</li>
 <li>
     <a href="javascript:void(0)"><i class="fa fa-th-large"></i> <span class="title"> Students </span><i class="icon-arrow"></i> </a>
     <ul class="sub-menu">

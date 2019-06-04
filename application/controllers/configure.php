@@ -247,5 +247,27 @@ MA (G)-2' OR `title` = 'MA (G OTHER)-1' OR `title` = 'MA (G OTHER)-2'  OR `title
     	    endforeach;
     	    redirect(base_url()."configure/feeEntry");
     	}
+        public function assinAccount() {
+           // $result = $this->db->query("SELECT * FROM `course` WHERE 1 ORDER BY `id` ASC;")->result();
+            $data = Array(
+                "pageTitle"     => 'Assign Class to Accountent',
+                "smallTitle"    => '',
+                "mainPage"      => 'Cofigure',
+                "subPage"       => 'Assign Class to Accountent',
+                "title"         => 'Assign Class to Accountent',
+                "headerCss"     => 'headerCss/studentListCss',
+                "footerJs"      => 'footerJs/simpleStudentListJs',
+                "mainContent"   => 'configure/assignAcc',
+               // "courses"       => $result
+            );
+            $this->load->view("includes/mainContent", $data);
+        }
+        
+        public function getEmployee() {
+            $username = $this->db->query("SELECT * FROM `employee_info`;")->result();
+            echo json_encode(array("username" => $username));
+        }
+        ///course add
+       
     }
 ?>

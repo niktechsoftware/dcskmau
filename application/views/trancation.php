@@ -106,7 +106,7 @@
     // $a = $view->result();
      //$b = $a->opening_balance;
      // print_r($view->opening_date);exit;
-      if($view->opening_date < 'date("Y-m-d")'){
+      if($view->opening_date == 'date("Y-m-d")'){
         ?>
             <div class="panel-body">
            <div class="row">
