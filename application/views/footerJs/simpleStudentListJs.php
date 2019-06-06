@@ -55,11 +55,16 @@
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<!-- start: CORE JAVASCRIPTS  -->
 		<script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+		<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
 		<!-- end: CORE JAVASCRIPTS  -->
 		<script>
 			jQuery(document).ready(function() {
 				//status button
+					//class employee code
 				
+				
+      
 				//status end
 				TableExport.init();
 				Main.init();

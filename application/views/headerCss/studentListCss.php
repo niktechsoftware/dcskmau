@@ -30,3 +30,4 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/print.css" type="text/css" media="print"/>
 		<!-- end: CORE CSS -->
 		<link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico" />
+		<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> -->

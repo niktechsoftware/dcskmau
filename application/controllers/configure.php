@@ -248,7 +248,7 @@ MA (G)-2' OR `title` = 'MA (G OTHER)-1' OR `title` = 'MA (G OTHER)-2'  OR `title
     	    redirect(base_url()."configure/feeEntry");
     	}
         public function assinAccount() {
-           // $result = $this->db->query("SELECT * FROM `course` WHERE 1 ORDER BY `id` ASC;")->result();
+           //$result = $this->db->query("SELECT * FROM `course` WHERE 1 ORDER BY `id` ASC;")->result();
             $data = Array(
                 "pageTitle"     => 'Assign Class to Accountent',
                 "smallTitle"    => '',
@@ -262,11 +262,19 @@ MA (G)-2' OR `title` = 'MA (G OTHER)-1' OR `title` = 'MA (G OTHER)-2'  OR `title
             );
             $this->load->view("includes/mainContent", $data);
         }
+        public function addCourseClass(){
+        $empUser=$this->input->post('empUsername');
+        $course = $this->input->post('courseId');
         
-        public function getEmployee() {
-            $username = $this->db->query("SELECT * FROM `employee_info`;")->result();
-            echo json_encode(array("username" => $username));
-        }
+        $this->load->model('empClassModel');
+        if(strlen($empUser)>1){
+        $empList = $this->empClassModel->addcourseAcc($empUser,$course);
+    }else{
+        $empList = $this->empClassModel->addscourseAcc();
+    }
+        $data['empList'] = $empList;
+        $this->load->view("configure/assignClass",$data);
+    }
         ///course add
        
     }
