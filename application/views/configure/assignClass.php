@@ -1,8 +1,6 @@
 <?php
-	//print_r($empList);
 $i = 1;
-if(isset($empList)):
-//$empList;
+if(isset($empList)){
 ?>
 <div class="row">
 	<div class="col-md-12">
@@ -27,7 +25,7 @@ if(isset($empList)):
 				<td><?php echo $emp->job_title;?></td>
 				<td><?php echo $emp->status;?></td>
 				<td><input type="text" name="course" id="coursevalue<?php echo $i;?>" value="<?php echo $view->course_id;?>">
-					<input type="hidden" id="courseId<?php echo $i;?>" size="13" value="<?php echo $emp->username; ?>">
+					<input type="hidden" id="empId<?php echo $i;?>" size="13" value="<?php echo $emp->username;?>">
 				</td>
 				<td>
 				 <a href="" class="btn btn-sm btn-primary" id="edit<?php echo $i;?>"><i class="fa fa-edit"></i>Edit</a>
@@ -36,23 +34,25 @@ if(isset($empList)):
 					<a href="" class="btn btn-sm btn-primary" id="delete<?php echo $i;?>"><i class="fa fa-trash-o"></i> Delete</a>
 				</td>
 			</tr>
-		<?php $i++;}?>
+		<?php $i++; } ?>
 		</table> 
 	</div>
 </div>
-<script type="text/javascript">
-	<?php for($j = 1; $j < $i; $j++){ ?>
+<?php }?>
+<script>
+	    <?php for($j = 1; $j < $i; $j++){ ?>
 			    $("#edit<?php echo $j; ?>").click(function(){
-		    		var empuname = $('#courseid<?php echo $j; ?>').val();
-		    		var courseId = $('#coursevalue<?php echo $j;?>').val();
-		    		alert(courseId);
+		    		var empId = $('#empId<?php echo $j; ?>').val();
+		    		var empuname = $('#coursevalue<?php echo $j;?>').val();
+		    		alert(empId);
 		    		alert(empuname);
 		    		alert("your course is successfully updated");
 		    		var form_data = {
-							coursenm : coursenm,
+		    			empId : empId,
+							empuname : empuname
 						};
 				$.ajax({
-					url: "<?php echo site_url("configure/updateExam") ?>",
+					url: "<?php echo site_url("configure/updateCourse") ?>",
 					type: 'POST',
 					data: form_data,
 					success: function(msg){
@@ -61,12 +61,13 @@ if(isset($empList)):
 				});
 		        });
 			    $("#delete<?php echo $j; ?>").click(function(){
-		    		var examId = $('#examId<?php echo $j; ?>').val();	
+		    		var empId = $('#empId<?php echo $j; ?>').val();	
 		    		//alert(streamName);
-		    		$.post("<?php echo site_url('examconfiguration/deleteExam') ?>", {examId : examId}, function(data){
-		                $("#examAdd1").html(data);
+		    		$.post("<?php echo site_url('configure/deleteCourse') ?>", {empId : empId}, function(data){
+		                $("#classEmp").html(data);
 		                //alert(data);
 		    		})
 		        });
-               <?php }?>    
+	                
+                    <?php } ?>   
 </script>

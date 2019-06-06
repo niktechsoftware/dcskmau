@@ -275,6 +275,30 @@ MA (G)-2' OR `title` = 'MA (G OTHER)-1' OR `title` = 'MA (G OTHER)-2'  OR `title
         $data['empList'] = $empList;
         $this->load->view("configure/assignClass",$data);
     }
+    public function updateCourse(){
+        $this->load->model('empClassModel');
+        if($query = $this->empClassModel->updateCourseModel($this->input->post("empId"),$this->input->post("empuname"))){
+            ?>
+            <script>
+                    $.post("<?php echo base_url('configure/addCourseClass') ?>", function(data){
+                        $("#classEmp").html(data);
+                    });
+            </script>
+            <?php 
+        }
+    }
+    public function deleteCourse(){
+        $this->load->model('empClassModel');
+        if($query = $this->empClassModel->deleteCourseModel($this->input->post("empId"))){
+            ?>
+            <script>
+                    $.post("<?php echo base_url('configure/addCourseClass') ?>", function(data){
+                        $("#classEmp").html(data);
+                    });
+            </script>
+            <?php 
+        }
+    }
         ///course add
        
     }
