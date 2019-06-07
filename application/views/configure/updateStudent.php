@@ -24,9 +24,17 @@
 								<label class="control-label">Course</label>
 								<select name="year" required="true" onchange="getFeeData(this.value)">
 								    <option> -Select Course-</option>
-								    <?php foreach($courses as $value): ?>
-								    <option value='<?= $value->title ?>'><?= $value->title ?></option>
-								    <?php endforeach; ?>
+
+								    <?php  //print_r($courses->result());
+                                    foreach($courses->result() as $value):
+                                        $a = $value->course_id;
+                                        $this->db->where('id',$a);
+                                       $co = $this->db->get('course')->result();
+                                        print_r($co);
+                                        foreach($co as $c) {
+                                       ?>
+								    <option value='<?= $c->id ?>'><?= $c->title; ?></option>
+								    <?php }endforeach; ?>
 								</select>
 								<span id="loading"></span>
 							</div>
@@ -72,7 +80,7 @@
                     <td>${val.name}</td>
                     <td><input type="text" id="aadhar${idx}" value="${val.adhaarNo}" /></td>
                     <td><input type="text" id="leaser${idx}" value="${val.leaser_no}" /></td>
-                    <td><input type="text" id="reciept${idx}" value="${val.reciept_no}" /></td>
+                    <td ><input type="text" id="reciept${idx}" value="${val.reciept_no}" /></td>
                     <td><input type="text" id="book${idx}" value="${val.book_no}" /></td>
                     <td><button class="btn btn-success" id="btn${idx}" onclick="editData(${val.sno},'aadhar${idx}','leaser${idx}','reciept${idx}','book${idx}','btn${idx}')">Edit</button></td>
                     </tr>`

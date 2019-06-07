@@ -121,14 +121,23 @@
     	    }else{
     	       $empno = $this->session->userdata('username');
     	       if($empno =='20021'){
-    	           $result = $this->db->query("SELECT * FROM `course` WHERE  `title` = 'BA-1' OR `title` = 'BA-2' OR `title` = 'BA-3';")->result();
+                    $this->db->where('username',$empno);
+                    $emp_id = $this->db->get('employee_info')->row()->id;
+                
+    	           $result = $this->db->query("SELECT * FROM `employee_class` WHERE  `emp_user` = $emp_id");
+                   // print_r($result);exit();
     	       }
     	       if($empno =='20022'){
-    	           $result = $this->db->query("SELECT * FROM `course` WHERE  `title` = 'B.Sc. BIO-1' OR `title` = 'B.Sc. BIO-2' OR `title` = 'B.Sc. BIO-3' OR `title` = 'B.Sc. MATH-1' OR `title` = 'B.Sc. MATH-2' OR `title` = 'B.Sc. MATH-3';")->result();
+    	           $this->db->where('username',$empno);
+                    $emp_id = $this->db->get('employee_info')->row()->id;
+                
+                   $result = $this->db->query("SELECT * FROM `employee_class` WHERE  `emp_user` = $emp_id");
     	       }
     	        if($empno =='20023'){
-    	           $result = $this->db->query("SELECT * FROM `course` WHERE  `title` = 'MA-1' OR `title` = 'MA-2' OR `title` = 'MA (G)-1' OR `title` = '	
-MA (G)-2' OR `title` = 'MA (G OTHER)-1' OR `title` = 'MA (G OTHER)-2'  OR `title` = 'MA (OTHER)-1'  OR `title` = 'MA (OTHER)-2';")->result();
+    	           $this->db->where('username',$empno);
+                    $emp_id = $this->db->get('employee_info')->row()->id;
+                
+                   $result = $this->db->query("SELECT * FROM `employee_class` WHERE  `emp_user` = $emp_id");
     	       }
     	    }
     	    $data = Array(
@@ -160,9 +169,8 @@ MA (G)-2' OR `title` = 'MA (G OTHER)-1' OR `title` = 'MA (G OTHER)-2'  OR `title
     	}
     	
     	public function getStuDetails() {
-    	    $courseID = $this->input->post('courseID');
+    	    $courseID = $this->input->post('course');
     	    $feeHead = $this->db->query("SELECT * FROM `student_info` WHERE  `course` = '$courseID'")->result();
-    	    
     	    $data = array(
     	        "feeHead" => $feeHead
     	    );
@@ -263,17 +271,17 @@ MA (G)-2' OR `title` = 'MA (G OTHER)-1' OR `title` = 'MA (G OTHER)-2'  OR `title
             $this->load->view("includes/mainContent", $data);
         }
         public function addCourseClass(){
-        $empUser=$this->input->post('empUsername');
-        $course = $this->input->post('courseId');
-        
+      $course = $this->input->post('courseId');
+         $empUser=$this->input->post('empUsername');
         $this->load->model('empClassModel');
-        if(strlen($empUser)>1){
-        $empList = $this->empClassModel->addcourseAcc($empUser,$course);
+        if($empUser){ 
+        $empList = $this->empClassModel->addcourseAcc($course,$empUser);
     }else{
         $empList = $this->empClassModel->addscourseAcc();
     }
         $data['empList'] = $empList;
         $this->load->view("configure/assignClass",$data);
+
     }
     public function updateCourse(){
         $this->load->model('empClassModel');

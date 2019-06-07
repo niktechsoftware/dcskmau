@@ -20,27 +20,27 @@
             <div class="panel-body">
                 <div class="row">
                         <div class="col-md-5">
-                            <?php $var = $this->db->query("select  title from course ");?>
+                            <?php $var = $this->db->query("select * from course ");?>
                             <select id="courseID" class="form-control">
                                <?php  if($var->num_rows() > 0){
                                  echo '<option value="">-Select Course Name-</option>';
                                  foreach ($var->result() as $row){
-                                 echo '<option value="'.$row->title.'">'.$row->title.'</option>';
+                                 echo '<option value="'.$row->id.'">'.$row->title.'</option>';
                                  }}?>
                             </select>
                         </div>
                         <div class="col-md-5">
-                            <?php $var = $this->db->query("select  username from employee_info ");?>
+                            <?php $var = $this->db->query("select  id, username from employee_info ");?>
                             <select id="empID" class="form-control" >
                                <?php  if($var->num_rows() > 0){
                                  echo '<option value="">-Select Employee Name-</option>';
                                  foreach ($var->result() as $row){
-                                 echo '<option value="'.$row->username.'">'.$row->username.'</option>';
+                                 echo '<option value="'.$row->id.'">'.$row->username.'</option>';
                                  }}?>
                             </select>
                         </div>
                         <div class="col-md-2">
-                             <a href="#" class="btn btn-sm btn-round btn-primary" id="addCourseButton" onclick="myFunction()"><i class="ion-checkmark-round">Assign Class</i></a>
+                             <a href="#" class="btn btn-sm btn-round btn-primary" id="addCourseButton" ><i class="ion-checkmark-round">Assign Class</i></a>
                         </div>
                     </div>
                     <div class="row">
@@ -58,20 +58,20 @@
     </div>
 </div>
 <script type="text/javascript">
-    function myFunction() {
-  let empUsername = document.getElementById("empID").value;
-  let courseId = document.getElementById("courseID").value;
-  //alert(courseId);
-  //alert(empUsername);
-   $.post('<?php echo base_url("configure/addCourseClass")?>', { empUsername : empUsername,courseId : courseId }, function(data){
+  $(document).ready(function() {
+      $("#addCourseButton").click(function(){
+         var courseId = $("#courseID").val();
+        var empUsername = $("#empID").val();
+   $.post('<?php echo base_url("configure/addCourseClass")?>', { courseId : courseId,
+    empUsername : empUsername }, function(data){
               $("#classEmp").html(data);
         });
-}
-        var empUsername= $('#empID').val();
-        var courseId = $('#courseID').val();
+        });
+         var empUsername = $("#empID").val();
+        var courseId = $("#courseID").val();
    $.post('<?php echo base_url("configure/addCourseClass")?>', { empUsername : empUsername,courseId : courseId }, function(data){
               $("#classEmp").html(data);
         });
         // $('#empshowList').DataTable();
-                
+       });         
 </script>

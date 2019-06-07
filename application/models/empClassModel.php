@@ -1,12 +1,13 @@
 <?php
 	class EmpClassModel extends CI_Model{
-		public function addcourseAcc($empUser,$course){
+		public function addcourseAcc($course,$empUser){
 		$db = array(
 			"course_id" => $course,
 			"emp_user" => $empUser
 		);
-		if(strlen($course) > 1){
+		if($course){
 			$this->db->insert("employee_class",$db);
+			//print_r($dbb);
 		}
 		$query = $this->db->get("employee_class");
 		return $query;
@@ -18,10 +19,12 @@
 	}
 
 	public function updateCourseModel($empId,$empuname){
+			$this->db->where('title',$empuname);
+			$cnm = $this->db->get('course')->row()->id;
 		$val = array(
-				"course_id" => $empuname
+				"course_id" => $cnm
 		);
-		$this->db->where("emp_user",$empId);
+		$this->db->where("id",$empId);
 		$query = $this->db->update("employee_class",$val);
 		return true;
 	}
@@ -34,7 +37,7 @@
                 return false;
 		   	  }
 		   }
-		   	  	$this->db->where("emp_user",$empId);
+		   	  	$this->db->where("id",$empId);
 		    $query = $this->db->delete("employee_class");
 		    return $query;
 		}
