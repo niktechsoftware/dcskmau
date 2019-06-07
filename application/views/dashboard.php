@@ -164,14 +164,16 @@ if(($is_login == "admin") || ($is_login == "accountent")){
                     <?php
                          //  $this->db->where("closing_date",date('Y-m-d'));
                         //$row = $this->db->get("opening_closing_balance")->row();
-                      $view = $this->db->query("select * from opening_closing_balance where opening_date <= '".date('Y-m-d')."' AND closing_date <= '".date('Y-m-d')."'")->row();
+                      $view = $this->db->query("select * from opening_closing_balance where opening_date = '".date('Y-m-d')."' AND closing_date = '".date('Y-m-d')."'")->row();
+                      //print_r($view);
                     ?>
                     <i class="fa fa-tasks fa-2x icon-big"></i>
 
-                    <?php //print_r($view->opening_date == date('Y-m-d'));
-                            if($view->opening_date == date('Y-m-d')){
-                              echo $view->closing_balance; 
-                              }else{echo "0.0";}
+                    <?php //echo $view->closing_balance;
+                    //print_r($view->opening_date == date('Y-m-d'));
+                            if($view->opening_date < date('Y-m-d')){
+                              echo "0.0";
+                              }else{ echo $view->closing_balance;}
                     ?>
                 </div>
                 <a href="#">
@@ -197,10 +199,10 @@ if(($is_login == "admin") || ($is_login == "accountent")){
                         
                     ?>
                     <i class="fa fa-book fa-2x icon-big"></i>
-                    <span ><?php if($view->opening_date == date('Y-m-d')){
-                        echo $benefit;
+                    <span ><?php if($view->opening_date < date('Y-m-d')){
+                         echo "0.0";
                     }else{
-                   echo "0.0"; }?></span>
+                  echo $benefit; }?></span>
                 </div>
                 <a href="#">
                 <div class="padding-20 core-content">

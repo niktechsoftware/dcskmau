@@ -101,12 +101,8 @@
       <h4 class="panel-title"> Today Day Book Account</h4>
       </div>
       <?php 
-      $view = $this->db->query("select * from opening_closing_balance where opening_date <= '".date('Y-m-d')."' AND closing_date <= '".date('Y-m-d')."'")->row();
-    // $b = $this->db->get("opening_closing_balance")->row();
-    // $a = $view->result();
-     //$b = $a->opening_balance;
-     // print_r($view->opening_date);exit;
-      if($view->opening_date == 'date("Y-m-d")'){
+      $view = $this->db->query("select * from opening_closing_balance where opening_date = '".date('Y-m-d')."' AND closing_date = '".date('Y-m-d')."'")->row();
+      if($view->opening_date < 'date("Y-m-d")'){
         ?>
             <div class="panel-body">
            <div class="row">

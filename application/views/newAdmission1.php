@@ -31,22 +31,22 @@
 							<form action="<?php echo base_url();?>index.php/login/newAdmission1"  method ="post" role="form" id="form">
 							<div class="panel-body">
 								<div class="panel panel-calendar">
-																		<div class="panel-heading panel-blue border-light">
-																			<h4 class="panel-title">Enter Roll Number</h4>
-																		</div>
-																		<div class="panel-body">
-																			<div class="text-black text-large">
-																				<input type="text" id="rollNo" name="rollNo" value="<?php if($isvalue!="null"){echo $stud_id;}?>">
-																			<input type="submit" name="studentId" value="Submit" class="submit btn btn-blue">
+							<div class="panel-heading panel-blue border-light">
+						<h4 class="panel-title">Enter Roll Number</h4>
+					</div>
+					<div class="panel-body">
+						<div class="text-black text-large">
+						<input type="text" id="rollNo" name="rollNo" value="<?php if($isvalue!="null"){echo $stud_id;}?>">
+			<input type="submit" name="studentId" value="Submit" class="submit btn btn-blue">
 <lable> <font size="4" color="red"> <?php if($this->uri->segment(3)==9){
-																				echo "Roll Noumber Already Exist";
-																			}
-																			?>
-																			</font> </lable>
-																					</div>
-																		</div>
-																	</div>
-																</div>
+				echo "Roll Noumber Already Exist";
+					}
+				?>
+	</font> </lable>
+									</div>
+						</div>
+					</div>
+				</div>
 								</form>
 				                <div class="panel-body" >
 				               
