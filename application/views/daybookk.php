@@ -12,7 +12,9 @@
                             <div class="col-md-3">
                                 <h5 class="text-center">Select Session</h5>
                             </div>
+
                               <div class="col-md-6">
+
                                   <select name="session_nm" id="session_nm" class="form-control">
                                        <option value="0">-Select Session-</option>
                                        <option value="17">2017</option> 
@@ -22,8 +24,10 @@
                               </div>
                         </div>     
                     </div>   
+
                    
                     <div class="row">
+
                         <div class="col-md-6">
                             <div class="panel">
                               <div class="panel-heading panel-pink border-light">
@@ -51,9 +55,9 @@
                                 </div> 
                             </div>
                            </div>
-                        </div>
+                    
                    
-                    <div class="row">
+                   
                      <div class="col-md-12 space20">
                         <div class="row">
                         <div class="col-md-3">
@@ -69,9 +73,11 @@
                             <input type="radio"  name="check_list" value="GEN BOTH" required="required">General Both
                         </div>
                     </div>
+
                     </div>
                  </div>
                  <div class="row">
+
                      <div class="col-md-12 space20" >
                         <div class="row">
                         <div class="col-md-3">
@@ -103,7 +109,7 @@
                             <div style="color: red;"><!-- <?php echo $msg;?> --></div> 
                          </div>
                     </div>
-                </div>
+            
                 <div class="row" style="padding-bottom: 20px;">
                      <div class="col-md-6">
                         <div class="col-md-4">
