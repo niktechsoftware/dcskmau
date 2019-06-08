@@ -318,5 +318,16 @@ $this->db->where("roll_number",$student_id);
 		$data['mainContent'] = 'trancation';
 		$this->load->view("includes/mainContent", $data);
 	}
+	public function showStud(){
+		$data['pageTitle'] = 'Student Section';
+		$data['smallTitle'] = 'Student Detail';
+		$data['mainPage'] = 'Student';
+		$data['subPage'] = ' All Infomation';
+		$data['title'] = 'Student Detail';
+		$data['headerCss'] = 'headerCss/trancationCss';
+		$data['footerJs'] = 'footerJs/trancationJs';
+		$data['mainContent'] = 'showStud';
+		$this->load->view("includes/mainContent", $data);
+	}
 }
 ?>

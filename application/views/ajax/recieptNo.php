@@ -1,6 +1,7 @@
 <div class="row table">
         <div class="col-md-12" style="background-color: #f5f5f5; border: 1px solid;">
             <div class="row">
+                <div class="col-md-12">
                 <table class="table">
                     <tr>
                         <td rowspan="2">  <img src="<?php echo base_url()?>/assets/images/invoice_logo.jpg" alt="" width="100" /></td>
@@ -15,6 +16,7 @@
                     </tr>
                     
                 </table>
+            </div>
             </div>
             <hr>
                          <?php 
@@ -62,7 +64,7 @@
                 </div>
             </div>
             
-             <div class="row">
+             <div class="row" style="padding-bottom:20px; ">
                 <div class="col-md-12">
                     <button onclick="myFunction()">Print </button>
 

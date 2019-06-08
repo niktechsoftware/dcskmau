@@ -377,8 +377,10 @@
     	
 
 
-        public function updatestatus() {
-
+        public function updatestatus() {?>
+ <script>
+            alert("1");
+            </script><?php 
          $status = $this->input->post('status');
         $this->db->where('roll_number',$status);
       $studentid=$this->db->get('student_info')->row()->status;
@@ -386,12 +388,19 @@
         $data= array("status" => 0);
         print_r($data);
         $this->db->where('roll_number',$status);
-        $this->db->update("student_info",$data);
-
+        $this->db->update("student_info",$data);?>
+        <script>
+             alert("<?php echo $status;?>");
+       $("#<?php echo $status;?>").val("inActive");
+</script><?php
     }else{
         $data= array("status" => 1);
          $this->db->where('roll_number',$status);
-        $this->db->update("student_info",$data);
+        $this->db->update("student_info",$data);?>
+         <script>
+            alert("<?php echo $status;?>");
+         $("#<?php echo $status;?>").val("Active");
+          </script><?php
     }
        //print_r($studentid);
           /* $data= array(

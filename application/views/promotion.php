@@ -129,7 +129,7 @@
     }
  function myFunction(stID) {
  	let status = stID.id;
- 	alert(status);
+ 	//alert(status);
 
  $.ajax({
 					url: "<?= base_url() ?>student/updatestatus",

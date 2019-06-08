@@ -144,9 +144,9 @@ if(($is_login == "admin") || ($is_login == "accountent")){
                     <i class="fa fa-users fa-2x icon-big"></i>
                      <?php $t = $this->db->get("student_info");
                    $t =  $t->num_rows();?>
-                    <span class="subtitle"> <?php echo $t;?>. </span>
+                    <span class="subtitle"> <?php echo $t;?> </span>
                 </div>
-                <a href="#">
+                <a href="<?php echo base_url('login/showStud')?>">
                 <div class="padding-20 core-content">
                     <h4 class="title block no-margin"> Total Student Registration</h4>
                    
@@ -164,8 +164,9 @@ if(($is_login == "admin") || ($is_login == "accountent")){
                     <?php
                          //  $this->db->where("closing_date",date('Y-m-d'));
                         //$row = $this->db->get("opening_closing_balance")->row();
-                      $view = $this->db->query("select * from opening_closing_balance where opening_date < '".date('Y-m-d')."' AND closing_date < '".date('Y-m-d')."'")->row();
-                      //print_r($view);
+                      $view = $this->db->query("select * from opening_closing_balance  ORDER BY id DESC LIMIT 1")->row();
+                     // print_r($view);
+                      //exit;
                     ?>
                     <i class="fa fa-tasks fa-2x icon-big"></i>
 

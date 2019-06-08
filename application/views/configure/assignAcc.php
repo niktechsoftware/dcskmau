@@ -30,12 +30,12 @@
                             </select>
                         </div>
                         <div class="col-md-5">
-                            <?php $var = $this->db->query("select  id, username from employee_info ");?>
+                            <?php $var = $this->db->query("select  * from employee_info ");?>
                             <select id="empID" class="form-control" >
                                <?php  if($var->num_rows() > 0){
                                  echo '<option value="">-Select Employee Name-</option>';
                                  foreach ($var->result() as $row){
-                                 echo '<option value="'.$row->id.'">'.$row->username.'</option>';
+                                 echo '<option value="'.$row->id.'">'.$row->first_name.'&nbsp;&nbsp;'. $row->mid_name.'&nbsp;&nbsp;'. $row->last_name.'&nbsp;&nbsp;('.$row->username.')</option>';
                                  }}?>
                             </select>
                         </div>

@@ -12,7 +12,7 @@
                             <div class="col-md-3">
                                 <h5 class="text-center">Select Session</h5>
                             </div>
-                              <div class="col-md-9">
+                              <div class="col-md-6">
                                   <select name="session_nm" id="session_nm" class="form-control">
                                        <option value="0">-Select Session-</option>
                                        <option value="17">2017</option> 
@@ -22,7 +22,7 @@
                               </div>
                         </div>     
                     </div>   
-                    </div>
+                   
                     <div class="row">
                         <div class="col-md-6">
                             <div class="panel">
@@ -55,42 +55,50 @@
                    
                     <div class="row">
                      <div class="col-md-12 space20">
-                        <div class="col-md-2">
+                        <div class="row">
+                        <div class="col-md-3">
                             <input type="radio"  name="check_list" value="all"  required="required">All
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input type="radio"   name="check_list" value="GEN MALE" required="required">General Male
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input type="radio"  name="check_list" value="GEN FEMALE" required="required">General Female
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input type="radio"  name="check_list" value="GEN BOTH" required="required">General Both
                         </div>
-                        <div class="col-md-3">
-                            <input type="radio"  name="check_list" value="OBC MALE" required="required">Backword Male
-                        </div>
+                    </div>
                     </div>
                  </div>
                  <div class="row">
                      <div class="col-md-12 space20" >
+                        <div class="row">
+                        <div class="col-md-3">
+                            <input type="radio"  name="check_list" value="OBC MALE" required="required">Backword Male
+                        </div>
                         <div class="col-md-3">
                             <input type="radio"  name="check_list" value="OBC FEMALE" required="required">Backword Female
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input type="radio"  name="check_list" value="OBC BOTH" required="required">Backword Both
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input type="radio"  name="check_list" value="SC MALE" required="required">SC/ST Male
                         </div>
-                        <div class="col-md-2">
+                    </div>
+                    </div>
+                     <div class="col-md-12 space20" >
+                        <div class="row">
+                         <div class="col-md-3 ">
                             <input type="radio"  name="check_list" value="SC FEMALE" required="required">SC/ST Female
                         </div>
                         <div class="col-md-3">
                             <input type="radio" name="check_list" value="SC BOTH" required="required">SC/ST Both
                         </div>
                     </div>
-                     <div class="row">
+                    </div>
+                     <div class="row ">
                          <div class="col-md-12 space20" >
                             <div style="color: red;"><!-- <?php echo $msg;?> --></div> 
                          </div>
@@ -102,6 +110,7 @@
                             <input type="submit" name="dbd" id="getDetailButton" value="Get Detail" class="submit btn btn-blue">
                         </div>
                     </div>
+                 </div>
                  </div>
                </div>
             </div>    
