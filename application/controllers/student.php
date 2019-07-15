@@ -26,6 +26,7 @@
 	}
     	
     	public function promotion() {
+			$result1= $this->db->query("SELECT * FROM `FSD`;")->result();
     	    $result = $this->db->query("SELECT DISTINCT `course` FROM `student_info` WHERE 1 ORDER BY `course` ASC;")->result();
     	    $data = Array(
     	        "pageTitle"     => 'Student Promotion',
@@ -36,7 +37,8 @@
     	        "headerCss"     => 'headerCss/studentListCss',
     	        "footerJs"      => 'footerJs/simpleStudentListJs',
     	        "mainContent"   => 'promotion',
-    	        "courses"       => $result
+				"courses"       => $result,
+				"fsd" => $result1
     	    );
     		$this->load->view("includes/mainContent", $data);
     	}
@@ -58,8 +60,12 @@
     	
     	public function getstudents() {
     	    $year = $this->input->post("year");
-    	    $course = $this->input->post("course");
-    	    $result = $this->db->query("SELECT * FROM `student_info` WHERE `course` = '$course' AND `year` = '$year' ORDER BY `sno` ASC;")->result();
+			$course = $this->input->post("course");
+			$fsd = $this->input->post("fsd");
+			$this->db->where('finance_start_date',$fsd);
+			$fsdd = $this->db->get('fsd')->row();
+			$fsdId = $fsdd->id;
+    	    $result = $this->db->query("SELECT * FROM `student_info` WHERE `course` = '$course' AND `year` = '$year' AND `fsd` = '$fsdId' ORDER BY `sno` ASC;")->result();
     	    $response = Array("result" => $result);
     	    echo json_encode($response);
     	}
@@ -80,13 +86,14 @@
                 $categoryID = 3;
             endif;
             
-            if($stuInfo->year == "1st"){
-    	    	$year= 2;
-    	    }
-    	    elseif($stuInfo->year == "2nd"){
-    	        $year = 3;
-    	    }
-        //    $year = $stuInfo->year == '1st' ? 1 : $stuInfo->year == '2nd' ? 2 : 3;
+            // if($stuInfo->year == "1st"){
+    	    // 	$year= 2;
+    	    // }
+    	    // elseif($stuInfo->year == "2nd"){
+    	    //     $year = 3;
+    	    // }
+		//    $year = $stuInfo->year == '1st' ? 1 : $stuInfo->year == '2nd' ? 2 : 3;
+		$year = $stuInfo->year == '1st' ? 2 : $stuInfo->year == '2nd' ? 3 : 3;
         //    echo $year;
          ///   die;
             $course = $stuInfo->course;
@@ -160,25 +167,25 @@
         			}
         		}
         	endif;
-    	    
+    	    $id=$this->uri->segment(3);
+			$this->db->where('sno',$id);
+			$stud_Info = $this->db->get('student_info')->row();
+			$stud_fsd = $stud_Info->fsd;
         	$rollNo = $this->input->post("student_id");
     	    $dataArray["name"] = $this->input->post("patientName");
     	    $dataArray["leaser_no"]="";
     	    $dataArray["father_name"]=$this->input->post("fatherName");
-    	    $dataArray["addmissionDate"]=$this->input->post("admissionDate");
+    	    $dataArray["addmissionDate"]=date('Y-m-d');
     	    $dataArray["dob"]=$this->input->post("dob");
     	    $dataArray["adhaarNo"]=$this->input->post("adhaar");
     	    $dataArray["uRollNo"]=$this->input->post("uRollNo");
     	    $dataArray["subject1"]=$sub1;
     	    $dataArray["subject2"]=$sub2;
-        	 
-    	    $dataArray["subject3"]=$sub3;
-    	    
-    	    
-
+			$dataArray["subject3"]=$sub3;
+			$dataArray["fsd"] = $stud_fsd;
     	    $this->db->where("roll_number",$rollNo);
     	    $rty =  $this->db->get("student_info")->row();
-    	    
+    	   // print_r($rty);exit();
     	    if($rty->year == "1st"):
     	    	$dataArray["year"]="2nd";
     	    elseif($rty->year == "2nd"):
@@ -212,7 +219,6 @@
                         "closing_balance" => $close,
                         "closing_date" => $cr_date,
                 );
-                //$this->db->where("school_code",$school_code);
                 $this->db->where("opening_date",date("Y-m-d"));
                  $this->db->update('opening_closing_balance',$balance);
              }
@@ -228,7 +234,6 @@
                         "closing_balance" => $cl_balance + $this->input->post("addfee"),
                         "opening_date" => $cr_date,
                         "closing_date" => $cr_date
-                        //"school_code"=>$school_code
                 );
                 $this->db->insert('opening_closing_balance',$balance);
             }
@@ -238,14 +243,24 @@
             //end code
         	
         	$courseFee = $this->db->query("INSERT INTO `student_info_old` SELECT * FROM `student_info` WHERE `roll_number` = '$rollNo'");
-        	
+			$this->db->where('roll_number',$rollNo);
+		$rollNo1=$this->db->get('student_info')->row();
+		//print_r($rollNo1);exit();
+		$stuFsd = $rollNo1->fsd;
+		$queryUpdate= $this->db->query("UPDATE `student_info_old` SET `fsd`= $stuFsd WHERE `roll_number`=$rollNo");
         	if($rty->year == "3rd"):
         	    echo "Not  Eligible for Promotion";
         	else:
         		$this->db->where("roll_number", $rollNo);
         		$this->db->update("student_info", $dataArray);
-        	endif;
-        	
+			endif;
+		$this->db->where('roll_number',$rollNo);
+		$rollNo1=$this->db->get('student_info')->row();
+		$stuFsd = $rollNo1->fsd;
+		$studFsd = $stuFsd+1;
+		$courseEntry = $this->db->query("UPDATE `student_info` SET `fsd`= $studFsd WHERE `fsd` = $stuFsd AND `roll_number` = $rollNo ");
+	//	print_r($courseEntry);exit();
+        	////
         	$this->db->where("roll_number", $rollNo);
             $stuInfo = $this->db->get("student_info")->row();
             

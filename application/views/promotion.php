@@ -20,6 +20,19 @@
 			    <form action="<?php echo base_url();?>index.php/newAdmissionController/updateStudentFeeStatus"  method ="post" role="form" id="form" enctype="multipart/form-data">
 				    <div class="col-md-12">
 						<div class="row">
+						<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label">
+										Class:<span class="symbol"></span>
+									</label>
+									<select name="class" id="fsdyr">
+									    <option vlaue="">-Select fsd-</option>
+									    <?php foreach($fsd as $val1): ?>
+									    <option vlaue="<?= $val1->id; ?>"><?= $val1->finance_start_date; ?></option>
+									    <?php endforeach; ?>
+									</select>
+								</div>
+							</div>
 							<div class="col-md-4">
 								<div class="form-group">
 									<label class="control-label">
@@ -85,10 +98,11 @@
     function getStudents(courseID) {
         let course = document.getElementById(courseID).value
         let year = document.getElementById("year").value
+		let fsd = document.getElementById("fsdyr").value
         $.ajax({
             method: "post",
             url: "<?= base_url() ?>student/getstudents",
-            data: {"course": course, "year": year},
+            data: {"course": course, "year": year,"fsd" : fsd},
             success: (data) => {
                 document.getElementById("students").setAttribute("style","display: initial;");
                 let response = JSON.parse(data);

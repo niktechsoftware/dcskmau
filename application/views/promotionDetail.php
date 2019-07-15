@@ -17,7 +17,7 @@
 				</div>
 		    </div>
 			<div class="panel-body">
-			    <form action="<?php echo base_url();?>student/finalpromote"  method ="post" role="form" id="form" enctype="multipart/form-data">
+			    <form action="<?php echo base_url();?>student/finalpromote/<?php echo $stuInfo->sno;?>"  method ="post" role="form" id="form" enctype="multipart/form-data">
 				    <div class="col-md-12">
 						<div class="form-group">
 						    <div class="row">
@@ -52,14 +52,18 @@
 									</div>
 								</div>
 								
-								<div class="col-sm-5">
+								<!-- <div class="col-sm-5">
 									<label class="col-sm-5 control-label">
 										Admission Date <span class="symbol required"></span>
 									</label>
 									<div class="col-sm-7">
-										<input type="date"  class="form-control" name="admissionDate" required="required" />
+									    <?php if($stuInfo->addmissionDate!=0) {?>
+										<input type="date"  class="form-control" readonly="true" name="admissionDate" required="required" value="<?= $stuInfo->addmissionDate; ?>"/>
+										<?php }else{?>
+										    	<input type="date"  class="form-control" name="admissionDate" required="required" />
+										<?php } ?>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 						<div class="form-group">
@@ -91,7 +95,12 @@
 										Date Of Birth <span class="symbol required"></span>
 									</label>
 									<div class="col-sm-7">
-										<input type="date"  class="form-control" name="dob" required="required" />
+									    <?php if($stuInfo->dob!=0){?>
+									    <input type="date" class="form-control" readonly="true" id="dob" name="dob" value="<?= $stuInfo->dob; ?>" />
+									<!--	<input type="date"  class="form-control" name="dob" required="required" />-->
+									<?php }else{ ?>
+									    <input type="date" class="form-control"  id="dob" name="dob"  />
+									<?php }?>
 									</div>
 								</div>
 								
@@ -100,7 +109,12 @@
 										Adhaar No <span class="symbol required"></span>
 									</label>
 									<div class="col-sm-7">
-										<input type="text"  class="form-control" name="adhaar" required="required" />
+									    <?php if($stuInfo->adhaarNo!=0){?>
+									    <input type="text" class="form-control" readonly="true" id="adhaar" name="adhaar" value="<?= $stuInfo->adhaarNo; ?>" />
+									<!--	<input type="text"  class="form-control" name="adhaar" required="required" />-->
+									<?php }else{?>
+									     <input type="text" class="form-control" id="adhaar" name="adhaar"  />
+									<?php } ?>
 									</div>
 								</div>
 							</div>

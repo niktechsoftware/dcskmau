@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'dcskme8d_registr';//'dcskme8d_registr';
-$db['default']['password'] = 'Rahul!123singh';//'mgfhbl';//'Rahul!123singh';
-$db['default']['database'] = 'dcskme8d_registr';
+$db['default']['username'] = 'root';//'dcskme8d_registr';//'dcskme8d_registr';
+$db['default']['password'] = '';//'Rahul!123singh';//'mgfhbl';//'Rahul!123singh';
+$db['default']['database'] = 'dcskme8d_registr2';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

@@ -42,3 +42,5 @@
 [30-Oct-2018 19:53:05 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
 [30-Oct-2018 19:53:10 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
 [30-Oct-2018 19:53:33 Asia/Calcutta] PHP Fatal error:  Cannot redeclare Student::getElectionyear() in /home/dcskme8d/public_html/dcs/application/controllers/student.php on line 328
+[09-Jul-2019 23:09:24 Asia/Calcutta] PHP Fatal error:  Call to a member function addscourseAcc() on a non-object in /home/dcskme8d/public_html/dcs/application/controllers/configure.php on line 288
+[09-Jul-2019 23:09:32 Asia/Calcutta] PHP Fatal error:  Call to a member function addcourseAcc() on a non-object in /home/dcskme8d/public_html/dcs/application/controllers/configure.php on line 286
